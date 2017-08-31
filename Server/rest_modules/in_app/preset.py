@@ -2,13 +2,12 @@ from flask_restful import Resource
 from flask import request
 
 from support.mysql import query
-from support.mongo import preset_col
 
 
 class Preset(Resource):
     def get(self):
         # '내 프리셋' 데이터 가져오기
-        return list(preset_col.find({'id': request.form['id']}, {'_id': False}))
+        # return list(preset_col.find({'email': request.form['email']}, {'_id': False}))
 
     def post(self):
         # '내 프리셋'에 추가
@@ -16,7 +15,7 @@ class Preset(Resource):
 
         }
 
-        preset_col.insert(data)
+        # preset_col.insert(data)
 
 
 class UploadedPreset(Resource):
