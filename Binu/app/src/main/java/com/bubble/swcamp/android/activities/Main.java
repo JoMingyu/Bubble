@@ -1,8 +1,10 @@
-package com.bubble.swcamp.android;
+package com.bubble.swcamp.android.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.bubble.swcamp.android.R;
 
 /**
  * Created by geni on 2017. 8. 31..

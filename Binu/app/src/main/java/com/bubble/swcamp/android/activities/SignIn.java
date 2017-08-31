@@ -1,12 +1,14 @@
-package com.bubble.swcamp.android;
+package com.bubble.swcamp.android.activities;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.network.APIclient;
 import com.bubble.swcamp.android.network.APIinterface;
 
@@ -14,39 +16,30 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by geni on 2017. 8. 31..
- */
-
-public class SignUp extends AppCompatActivity {
+public class SignIn extends AppCompatActivity {
     private APIinterface apIinterface;
-    private Button signUpSubmitBtn;
+    private Button signInSubmitBtn;
     private EditText inputId;
     private EditText inputPw;
-    private EditText inputNickName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up);
+        setContentView(R.layout.sign_in);
 
         apIinterface = APIclient.getClient().create(APIinterface.class);
-        signUpSubmitBtn = (Button)findViewById(R.id.signUpSubmit);
+        signInSubmitBtn = (Button)findViewById(R.id.signInSubmit);
         inputId = (EditText)findViewById(R.id.inputId);
         inputPw = (EditText)findViewById(R.id.inputPw);
-        inputNickName = (EditText)findViewById(R.id.inputNickName);
 
-        signUpSubmitBtn.setOnClickListener(new View.OnClickListener() {
+        signInSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apIinterface.doSignUp(
-                        inputId.getText().toString(),
-                        inputPw.getText().toString(),
-                        inputNickName.getText().toString()).enqueue(new Callback<Void>() {
+                apIinterface.doSignIn(inputId.getText().toString(), inputPw.getText().toString()).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        if(response.isSuccessful()){
-                            
+                        if(response.code() == 200){
+                            startActivity(new Intent(getApplicationContext(), Main.class));
                         }
                     }
 
