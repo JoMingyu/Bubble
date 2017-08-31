@@ -3,6 +3,7 @@ package com.bubble.swcamp.android.network;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -14,19 +15,22 @@ import retrofit2.http.POST;
 public interface APIinterface {
     @FormUrlEncoded
     @POST("/signup")
-    Call<Void> doSignUp();
+    Call<Void> doSignUp(@Field("id") String id,
+                        @Field("pw") String pw,
+                        @Field("nickname") String nickname);
 
     @FormUrlEncoded
     @POST("/signin")
-    Call<Void> doSignIn();
+    Call<Void> doSignIn(@Field("id") String id,
+                        @Field("pw") String pw);
 
     @FormUrlEncoded
     @POST("/market")
-    Call<Void>  doMarketUpload();
+    Call<Void> doMarketUpload();
 
     @FormUrlEncoded
     @GET("/market")
-    Call<JsonObject>  getMarket();
+    Call<JsonObject> getMarket();
 
     @FormUrlEncoded
     @POST("/market/download")
