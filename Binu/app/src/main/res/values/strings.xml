@@ -5,4 +5,5 @@
     <string name="DSMdevelopers">Daedeok Software Meister High School | KNY JGC YGH JMG</string>
     <string name="SIdevelopers">Sunrin Internet High School | KHJ YKI</string>
     <string name="sign_up">회원가입</string>
+    <string name="sign_in">로그인</string>
 </resources>

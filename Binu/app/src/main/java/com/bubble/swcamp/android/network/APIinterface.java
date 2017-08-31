@@ -23,7 +23,8 @@ public interface APIinterface {
 
     @FormUrlEncoded
     @POST("/signin")
-    Call<Void> doSignIn(@Field("id") String id,
+    Call<Void> doSignIn(@Field("sns") Boolean sns,
+                        @Field("id") String id,
                         @Field("pw") String pw);
 
     @FormUrlEncoded

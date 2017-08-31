@@ -8,10 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.network.APIclient;
 import com.bubble.swcamp.android.network.APIinterface;
+import com.bumptech.glide.Glide;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -33,10 +35,12 @@ import retrofit2.Response;
 public class SignIn extends AppCompatActivity {
     private APIinterface apIinterface;
     private CallbackManager callbackManager;
+    private ImageView background;
     private Button signInSubmitBtn;
     private LoginButton loginButton;
     private EditText inputId;
     private EditText inputPw;
+    private boolean isSns = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,32 +49,38 @@ public class SignIn extends AppCompatActivity {
 
         apIinterface = APIclient.getClient().create(APIinterface.class);
         callbackManager = CallbackManager.Factory.create();
+        background = (ImageView)findViewById(R.id.background);
         signInSubmitBtn = (Button)findViewById(R.id.signInSubmit);
-        loginButton = (LoginButton)findViewById(R.id.facebook_login);
+//        loginButton = (LoginButton)findViewById(R.id.facebook_login);
         inputId = (EditText)findViewById(R.id.inputId);
         inputPw = (EditText)findViewById(R.id.inputPw);
 
-        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-            }
+        Glide.with(getApplicationContext()).load(R.drawable.bg_account).into(background);
 
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Log.e("LoginErr",error.toString());
-            }
-        });
+//        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
+//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                Log.e("LoginErr",error.toString());
+//            }
+//        });
 
         signInSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apIinterface.doSignIn(inputId.getText().toString(), inputPw.getText().toString()).enqueue(new Callback<Void>() {
+                apIinterface.doSignIn(
+                        isSns,
+                        inputId.getText().toString(),
+                        inputPw.getText().toString()).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.code() == 200){
