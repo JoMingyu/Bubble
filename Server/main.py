@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_restful import Api
-from rest_modules.market import Market, Download
+from rest_modules.in_app.market import Market, Download
 
 from rest_modules.in_app.preset import MyPreset, PresetDetail, UploadedPreset
-from rest_modules.user import MyPage, MyPageDetail
+from rest_modules.user.user import MyPage, MyPageDetail
 from rest_modules.user.account import Signup, SignIn
 
 app = Flask(__name__)
@@ -21,4 +21,4 @@ api.add_resource(MyPageDetail, '/mypage/detail')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=4290)
