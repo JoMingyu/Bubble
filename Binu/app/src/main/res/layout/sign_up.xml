@@ -99,7 +99,7 @@
             android:gravity="center"
             android:weightSum="10">
             <Button
-                android:id="@+id/boy"
+                android:id="@+id/male"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -107,9 +107,10 @@
                 android:layout_marginLeft="15dp"
                 android:text="남성"
                 android:textColor="@android:color/white"
-                android:background="@drawable/boy_button" />
+                android:background="@drawable/male"
+                android:onClick="setGender"/>
             <Button
-                android:id="@+id/girl"
+                android:id="@+id/female"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -117,7 +118,8 @@
                 android:layout_marginRight="15dp"
                 android:text="여성"
                 android:textColor="@android:color/white"
-                android:background="@drawable/girl_button"/>
+                android:background="@drawable/female"
+                android:onClick="setGender"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"

@@ -16,8 +16,10 @@ public interface APIinterface {
     @FormUrlEncoded
     @POST("/signup")
     Call<Void> doSignUp(@Field("id") String id,
+                        @Field("email") String email,
                         @Field("pw") String pw,
-                        @Field("nickname") String nickname);
+                        @Field("nickname") String nickname,
+                        @Field("gender") String gender);
 
     @FormUrlEncoded
     @POST("/signin")

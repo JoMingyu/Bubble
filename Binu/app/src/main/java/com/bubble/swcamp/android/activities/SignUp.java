@@ -1,7 +1,9 @@
 package com.bubble.swcamp.android.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -27,8 +29,13 @@ public class SignUp extends AppCompatActivity {
     private ImageView background;
     private Button signUpSubmitBtn;
     private EditText inputId;
+    private EditText inputEmail;
     private EditText inputPw;
+    private EditText confirmPw;
     private EditText inputNickName;
+    private Button maleBtn;
+    private Button femaleBtn;
+    private String gender = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,8 +46,12 @@ public class SignUp extends AppCompatActivity {
         background = (ImageView)findViewById(R.id.background);
         signUpSubmitBtn = (Button)findViewById(R.id.signUpSubmit);
         inputId = (EditText)findViewById(R.id.inputId);
+        inputEmail = (EditText)findViewById(R.id.inputEmail);
         inputPw = (EditText)findViewById(R.id.inputPw);
+        confirmPw = (EditText)findViewById(R.id.confirmPw);
         inputNickName = (EditText)findViewById(R.id.inputNickName);
+        maleBtn = (Button)findViewById(R.id.male);
+        femaleBtn = (Button)findViewById(R.id.female);
 
         Glide.with(getApplicationContext())
                 .load(R.drawable.bg_account)
@@ -51,8 +62,10 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 apIinterface.doSignUp(
                         inputId.getText().toString(),
+                        inputEmail.getText().toString(),
                         inputPw.getText().toString(),
-                        inputNickName.getText().toString()).enqueue(new Callback<Void>() {
+                        inputNickName.getText().toString(),
+                        gender).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.code() == 201){
@@ -67,5 +80,21 @@ public class SignUp extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void setGender(View v){
+        switch (v.getId()){
+            case R.id.male:
+                gender = "m";
+                femaleBtn.setBackgroundResource(R.drawable.female);
+                maleBtn.setBackgroundResource(R.drawable.male_selected);
+                break;
+            case R.id.female:
+                gender = "f";
+                maleBtn.setBackgroundResource(R.drawable.male);
+                femaleBtn.setBackgroundResource(R.drawable.female_selected);
+                break;
+            default: break;
+        }
     }
 }
