@@ -28,6 +28,9 @@ class FindIdDemand(Resource):
     def post(self):
         # 아이디 찾기 : 인증 메일 전송
         email = request.form['email']
+        if not query("SELECT * FROM account WHERE email='{0}'".format(email)):
+            return '', 204
+
         code = str(uuid.uuid4())[:6]
 
         query("DELETE FROM email_codes WHERE email='{0}'".format(email))
@@ -39,6 +42,7 @@ class FindIdDemand(Resource):
 
 class FindIdVerify(Resource):
     def post(self):
+        # 아이디 찾기 : 코드 인증
         email = request.form['email']
         code = request.form['code']
 
@@ -50,18 +54,41 @@ class FindIdVerify(Resource):
             return '', 204
 
 
-class FindPassword(Resource):
+class FindPwDemand(Resource):
     def post(self):
-        # 비밀번호 찾기
+        # 비밀번호 찾기 : 인증 메일 전송
         email = request.form['email']
+        _id = request.form['id']
+        if not query("SELECT * FROM account WHERE email='{0}' AND id='{1}'".format(email, _id)):
+            return '', 204
 
-        res = query("SELECT * FROM account WHERE email='{0}'".format(email))
-        if res:
-            # id 존재함
-            new_pw = str(uuid.uuid4())[:8]
-            query("UPDATE account SET pw='{0}' WHERE email='{1}'".format(new_pw, email))
+        code = str(uuid.uuid4())[:6]
 
-            return new_pw, 200
+        query("DELETE FROM email_codes WHERE email='{0}'".format(email))
+        query("INSERT INTO email_codes VALUES('{0}', '{1}')".format(email, code))
+        send_email('[Bubble] 이메일 인증 코드입니다.', '인증 코드 : {0}'.format(code), email)
 
+        return '', 200
+
+
+class FindPwVerify(Resource):
+    def post(self):
+        # 비밀번호 찾기 : 코드 인증
+        email = request.form['email']
+        code = request.form['code']
+
+        if query("SELECT * FROM email_codes WHERE email='{0}' AND code='{1}'".format(email, code)):
+            query("DELETE FROM email_codes WHERE email='{0}'".format(email))
+            return '', 200
         else:
             return '', 204
+
+
+class ChangePassword(Resource):
+    def post(self):
+        email = request.form['email']
+        new_pw = request.form['pw']
+
+        query("UPDATE account SET pw='{0}' WHERE email='{1}'".format(new_pw, email))
+
+        return '', 200
