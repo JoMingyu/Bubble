@@ -46,7 +46,7 @@ public interface APIinterface {
 
     @FormUrlEncoded
     @GET("/preset/detail")
-    Call<JsonObject> getPresetDetail();
+    Call<Void> getPresetDetail();
 
     @FormUrlEncoded
     @GET("/mypage")
