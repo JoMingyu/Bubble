@@ -18,7 +18,7 @@ public class APIclient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://52.15.75.60:5429")
+                .baseUrl("http://52.79.134.200:4290")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .client(client)
