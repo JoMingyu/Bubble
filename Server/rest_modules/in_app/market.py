@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request
 
 from support.mysql import query
-from support.mongo import db
+from support.mongo import statistic_col, preset_col, market_col
 
 
 class Market(Resource):

@@ -6,13 +6,14 @@ from rest_modules.in_app. market import Market, Download
 from rest_modules.in_app. preset import Preset, PresetDetail, UploadedPreset
 
 from rest_modules.user. user import MyPage, MyPageDetail
-from rest_modules.user. account import Signup, SignIn
+from rest_modules.user. account import Signup, SignIn, FindPassword
 
 app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(Signup, '/signup')
 api.add_resource(SignIn, '/signin')
+api.add_resource(FindPassword, '/find_password')
 
 api.add_resource(MyPage, '/mypage')
 api.add_resource(MyPageDetail, '/mypage/detail')
