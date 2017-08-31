@@ -5,7 +5,7 @@ connection = pymysql.connect(
     port=3306,
     user='root',
     password='uursty199',
-    db='sw_hackathon_2017',
+    db='bubble',
     charset='utf8'
 )
 
