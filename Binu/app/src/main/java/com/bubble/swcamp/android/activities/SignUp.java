@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.network.APIclient;
 import com.bubble.swcamp.android.network.APIinterface;
+import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,6 +24,7 @@ import retrofit2.Response;
 
 public class SignUp extends AppCompatActivity {
     private APIinterface apIinterface;
+    private ImageView background;
     private Button signUpSubmitBtn;
     private EditText inputId;
     private EditText inputPw;
@@ -33,10 +36,15 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.sign_up);
 
         apIinterface = APIclient.getClient().create(APIinterface.class);
+        background = (ImageView)findViewById(R.id.background);
         signUpSubmitBtn = (Button)findViewById(R.id.signUpSubmit);
         inputId = (EditText)findViewById(R.id.inputId);
         inputPw = (EditText)findViewById(R.id.inputPw);
         inputNickName = (EditText)findViewById(R.id.inputNickName);
+
+        Glide.with(getApplicationContext())
+                .load(R.drawable.bg_account)
+                .into(background);
 
         signUpSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override

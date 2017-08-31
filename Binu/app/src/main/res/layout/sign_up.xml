@@ -1,26 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/inputId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
 
-    <EditText
-        android:id="@+id/inputPw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="35sp"/>
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/inputNickName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <EditText
+                android:id="@+id/inputId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="아이디"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="5dp"/>
 
-    <Button
-        android:id="@+id/signUpSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="이메일"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="5dp"/>
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/inputPw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="비밀번호"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:inputType="textPassword"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/confirmPw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="비밀번호 확인"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:inputType="textPassword"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/inputNickName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="닉네임"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:weightSum="10">
+            <Button
+                android:id="@+id/boy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="남성"
+                android:textColor="@android:color/white"
+                android:background="@drawable/boy_button" />
+            <Button
+                android:id="@+id/girl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:text="여성"
+                android:textColor="@android:color/white"
+                android:background="@drawable/girl_button"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:gravity="center">
+            <Button
+                android:id="@+id/signUpSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="회원가입"
+                android:textColor="@android:color/white"
+                android:background="@drawable/primary_button"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="돌아가기"
+                android:textColor="@android:color/white"
+                android:background="@drawable/primary_button"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
