@@ -17,7 +17,7 @@ class Signup(Resource):
         if res:
             return '', 204
         else:
-            query("INSERT INTO account VALUES('{0}', '{1}', '{2}', '{3}', '{4}', CURDATE())".format(email, _id, pw, nickname, gender))
+            query("INSERT INTO account VALUES('{0}', '{1}', '{2}', '{3}', '{4}', CURDATE(), 0)".format(email, _id, pw, nickname, gender))
             return '', 201
 
 
@@ -31,7 +31,7 @@ class SignIn(Resource):
                 nickname = request.form['nickname']
                 gender = request.form['gender']
 
-                query("INSERT INTO account_sns VALUES('{0}', '{1}', '{2}', CURDATE())".format(email, nickname, gender))
+                query("INSERT INTO account_sns VALUES('{0}', '{1}', '{2}', CURDATE(), 0)".format(email, nickname, gender))
 
             return '', 200
         else:
