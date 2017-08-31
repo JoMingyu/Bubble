@@ -5,6 +5,7 @@ from support.mysql import query
 
 
 class Signup(Resource):
+    # 회원가입
     def post(self):
         _id = request.form['id']
         pw = request.form['pw']
@@ -19,6 +20,7 @@ class Signup(Resource):
 
 
 class SignIn(Resource):
+    # 로그인
     def post(self):
         _id = request.form['id']
         pw = request.form['pw']
