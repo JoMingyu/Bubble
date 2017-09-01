@@ -30,7 +30,7 @@ public class MyPage extends AppCompatActivity {
         bgCircleProfile = (CircleImageView)findViewById(R.id.bg_circle_profile);
         recyclerView = (RecyclerView)findViewById(R.id.my_page_items);
 
-        recyclerView.setAdapter(new MyPageAdapter(getApplicationContext()));
+        recyclerView.setAdapter(new com.bubble.swcamp.android.adapter.MyPageAdapter(getApplicationContext()));
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
 
         Glide.with(getApplicationContext()).load(R.drawable.heize).into(bgProfile);

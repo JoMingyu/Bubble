@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#303841"
+    tools:context="com.bubble.swcamp.android.fragments.FilterBrightnessFragment">
+
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/color_title"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:text="색상"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/color_black"
+            android:layout_toLeftOf="@+id/color_mix"
+            android:background="#70666B"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="4dp"
+            android:text="흑백"
+            android:textSize="16sp"
+            android:textColor="#D4D6C8"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/color_mix"
+            android:background="#70666B"
+            android:layout_margin="4dp"
+            android:layout_centerVertical="true"
+            android:text="혼합"
+            android:textColor="#D4D6C8"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#70666B"
+        android:layout_height="2dp">
+
+    </View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/template"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:text="온도"
+            android:textSize="12sp"
+            android:textColor="#000"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/template_size"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/exposure_seekBar"
+            android:layout_below="@+id/template"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000"
+            android:layout_width="match_parent"
+            android:thumb="@drawable/seekbar_tem_thumb"
+            android:progressDrawable="@drawable/color_seekbar"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/color"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:textColor="#000"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:text="색상"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/color_size"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/color_seekBar"
+            android:layout_below="@+id/color"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000"
+            android:thumb="@drawable/seekbar_tem_thumb"
+            android:progressDrawable="@drawable/color_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>
