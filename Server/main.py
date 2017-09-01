@@ -5,7 +5,7 @@ from rest_modules.in_app. main_page import MainPage
 from rest_modules.in_app. market import Market, Download
 from rest_modules.in_app. preset import Preset, PresetDetail, UploadedPreset
 
-from rest_modules.user. user import MyPage
+from rest_modules.user. user import MyPage, MyPageDetail
 from rest_modules.user. account import Signup, SignIn
 from rest_modules.user .account_find import FindIdDemand, FindIdVerify, FindPwDemand, FindPwVerify, ChangePassword
 
@@ -22,6 +22,7 @@ api.add_resource(FindPwVerify, '/find_pw/verify')
 api.add_resource(ChangePassword, '/change_password')
 
 api.add_resource(MyPage, '/mypage')
+api.add_resource(MyPageDetail, '/mypage/detail')
 
 api.add_resource(MainPage, '/mainpage')
 api.add_resource(Market, '/market')
