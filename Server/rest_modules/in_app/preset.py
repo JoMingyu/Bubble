@@ -2,6 +2,8 @@ from flask_restful import Resource
 from flask import request
 
 from support.mysql import query
+import json
+from bson import json_util
 
 
 class Preset(Resource):
@@ -33,6 +35,11 @@ class Preset(Resource):
 
         return '', 201
 
+    def delete(self):
+        # 프리셋 제거
+        preset_id = request.form['preset_id']
+        query("DELETE FROM own_preset WHERE preset_id={0}".format(preset_id))
+
 
 class UploadedPreset(Resource):
     def get(self):
@@ -53,8 +60,7 @@ class PresetDetail(Resource):
     def get(self):
         # 프리셋 세부 정보
         preset_id = request.args['preset_id']
-        preset_data = query("SELECT * FROM own_preset WHERE preset_id={0}".format(preset_id))[0]
-        option = query("SELECT * FROM preset_options WHERE preset_id={0}".format(preset_id))[0]
-        preset_data.update(option)
+        preset_data = query("SELECT * FROM own_preset join preset_options using(preset_id) WHERE own_preset.preset_id={0}".format(preset_id))[0]
+        preset_data['creation_time'] = str(preset_data['creation_time'])
 
-        return preset_data
+        return str(preset_data)
