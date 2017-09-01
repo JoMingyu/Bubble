@@ -6,8 +6,8 @@ from support.mysql import query
 
 class MyPage(Resource):
     # 마이페이지 들어가기
-    def post(self):
-        email = request.form['email']
+    def get(self):
+        email = request.args['email']
 
         preset_data = query("SELECT * FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
 
@@ -36,7 +36,7 @@ class MyPage(Resource):
         acc_data = query("SELECT * FROM account WHERE email='{0}'".format(email))
         if not acc_data:
             acc_data = query("SELECT * FROM account_sns WHERE email='{0}'".format(email))
-            
+
         response = {
             'nickname': acc_data[0]['nickname'],
             'date': str(acc_data[0]['signup_date']),
