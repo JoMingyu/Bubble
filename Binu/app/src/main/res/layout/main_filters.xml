@@ -88,7 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2017. 08. 03"
+            android:text="2017. 09. 02"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:textSize="10sp"/>

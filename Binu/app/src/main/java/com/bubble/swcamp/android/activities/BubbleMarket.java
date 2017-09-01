@@ -23,7 +23,7 @@ public class BubbleMarket extends AppCompatActivity {
         setContentView(R.layout.bubble_market);
 
         recyclerView = (RecyclerView)findViewById(R.id.bubble_market_items);
-        recyclerView.setAdapter(new BubbleMarketAdapter());
+        recyclerView.setAdapter(new BubbleMarketAdapter(getApplicationContext()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 

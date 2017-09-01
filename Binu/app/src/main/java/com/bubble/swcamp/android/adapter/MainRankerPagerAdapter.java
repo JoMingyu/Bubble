@@ -36,7 +36,8 @@ public class MainRankerPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View view = getPagerItemView();
         ImageView background = (ImageView)view.findViewById(R.id.background);
-        Glide.with(mContext).load(R.drawable.ic_my_page1+position).into(background);
+        Glide.with(mContext).load(R.drawable.main1+position).into(background);
+        container.addView(view, 0);
         return view;
     }
 

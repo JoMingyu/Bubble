@@ -7,35 +7,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/ranker_mask"/>
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="25dp"
-        android:layout_margin="20dp"
-        android:src="@drawable/ic_like_medal_text"/>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-        <TextView
-            android:id="@+id/filter_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="음식 필터"
-            android:textSize="28sp"
-            android:textColor="@android:color/white" />
-        <TextView
-            android:id="@+id/filter_en_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/filterEnName"
-            android:textSize="25sp"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
 </RelativeLayout>

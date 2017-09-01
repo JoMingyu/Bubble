@@ -7,7 +7,7 @@ import io.realm.RealmObject;
  */
 
 public class Manager extends RealmObject {
-    private String email = "";
+    private String email = "geni429@gmail.com";
 
     public String getEmail() {
         return email;

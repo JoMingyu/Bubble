@@ -48,7 +48,7 @@ public class MyPreset extends AppCompatActivity {
         mRealm = Realm.getDefaultInstance();
         recyclerView = (RecyclerView) findViewById(R.id.my_preset_items);
         apiInterface = APIclient.getClient().create(APIinterface.class);
-        apiInterface.getOwnPreset(mRealm.where(Manager.class).findFirst().getEmail()).enqueue(new Callback<List<JsonObject>>() {
+        apiInterface.getOwnPreset("geni429@gmail.com").enqueue(new Callback<List<JsonObject>>() {
             @Override
             public void onResponse(Call<List<JsonObject>> call, Response<List<JsonObject>> response) {
                 if(response.code() == 200){

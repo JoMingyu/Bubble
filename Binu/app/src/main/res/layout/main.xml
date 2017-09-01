@@ -51,7 +51,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="3">
+                android:layout_weight="4">
                 <android.support.v4.view.ViewPager
                     android:id="@+id/ranker"
                     android:layout_width="match_parent"
@@ -79,14 +79,55 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
+                    <Button
+                        android:layout_margin="3dp"
+                        android:background="@drawable/bg_rounded_stroke_btn"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#봄" />
+                    <Button
+                        android:layout_margin="3dp"
+                        android:background="@drawable/bg_rounded_primary_dark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#도시"
+                        android:textColor="@android:color/white"/>
+                    <Button
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#가을"
+                        android:background="@drawable/bg_rounded_stroke_btn"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <Button
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#겨율"
+                        android:background="@drawable/bg_rounded_stroke_btn"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <Button
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#중학교"
+                        android:background="@drawable/bg_rounded_stroke_btn"
+                        android:textColor="@color/colorPrimaryDark"/>
+                    <Button
+                        android:layout_margin="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#고등학교"
+                        android:background="@drawable/bg_rounded_stroke_btn"
+                        android:textColor="@color/colorPrimaryDark"/>
                 </LinearLayout>
             </HorizontalScrollView>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/filters"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4.4"
+                android:layout_weight="5.4"
                 app:layoutManager="LinearLayoutManager">
 
             </android.support.v7.widget.RecyclerView>
