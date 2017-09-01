@@ -2,15 +2,16 @@ from flask_restful import Resource
 from flask import request
 
 from support.mysql import query
+from support.account_manager import get_account_data_from_email
 
 
 class Preset(Resource):
     def get(self):
         # '내 프리셋' 리스트 데이터 가져오기
-        # 필요한 데이터 : 프리셋 id, 이름, 소유여부, 업로드여부, 추가일, 해시태그, 이미지
+        # 필요한 데이터 : 프리셋 id, 이름, 소유여부, 업로드여부, 추가일, 해시태그, 닉네임, 이미지
 
         email = request.args['email']
-        data = query("SELECT preset_id, title, poss, uploaded, added_date, hash_tags, image_name FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
+        data = query("SELECT preset_id, title, poss, uploaded, added_date, hash_tags, image_name, preset.owner FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
         # 충분한 데이터 조회를 위해 내 프리셋과 프리셋 테이블 join
 
         for index in range(len(data)):
@@ -19,11 +20,10 @@ class Preset(Resource):
             data[index]['poss'] = data[index]['poss'] == 1
             data[index]['uploaded'] = data[index]['uploaded'] == 1
 
-            acc_data = query("SELECT nickname FROM account WHERE email='{0}'".format(email))
-            if not acc_data:
-                acc_data = query("SELECT nickname FROM account_sns WHERE email='{0}'".format(email))
+            acc_data = get_account_data_from_email(data[index]['owner'])
+            del data[index]['owner']
 
-            data[index]['nickname'] = acc_data[0]['nickname']
+            data[index]['nickname'] = acc_data['nickname']
             # 닉네임 추가
 
         return data
