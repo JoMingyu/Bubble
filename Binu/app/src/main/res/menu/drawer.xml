@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_my_preset"
+            android:icon="@drawable/ic_my_preset"
+            android:title="내 프리셋" />
+        <item
+            android:id="@+id/nav_item_upload_preset"
+            android:icon="@drawable/ic_upload_preset"
+            android:title="업로드 프리셋" />
+        <item
+            android:id="@+id/nav_item_bubble_market"
+            android:icon="@drawable/ic_market"
+            android:title="버블 마켓" />
+        <item
+            android:id="@+id/nav_item_my_page"
+            android:icon="@drawable/ic_person"
+            android:title="마이페이지" />
+    </group>
+</menu>

@@ -2,7 +2,10 @@ package com.bubble.swcamp.android.network;
 
 import com.google.gson.JsonObject;
 
+import java.io.File;
+
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -20,6 +23,13 @@ public interface APIinterface {
                         @Field("pw") String pw,
                         @Field("nickname") String nickname,
                         @Field("gender") String gender);
+
+    @FormUrlEncoded
+    @POST("/signin")
+    Call<Void> doSignInAsSns(@Field("sns") boolean sns,
+                             @Field("email") String email,
+                             @Field("nickname") String nickname,
+                             @Field("gender") String gender);
 
     @FormUrlEncoded
     @POST("/signin")
@@ -54,6 +64,13 @@ public interface APIinterface {
     @FormUrlEncoded
     @POST("/mypage")
     Call<JsonObject> getMyPage(@Field("email") String email);
+    
+    @POST("/preset/image")
+    Call<Void> doPresetImage(@Field("preset_id") int presetId,
+                             @Field("image") File image);
+    
+    @GET("/preset/image")
+    Call<JsonObject> getPresetImage(@Field("preset_id") int presetId);
 
     @FormUrlEncoded
     @POST("/market")
@@ -62,24 +79,60 @@ public interface APIinterface {
     @FormUrlEncoded
     @GET("/market")
     Call<JsonObject> getMarket();
+    
+    @FormUrlEncoded
+    @POST("/market")
+    Call<Void> postMarket(@Field("preset_id") int presetId,
+                          @Field("is_free") boolean isFree);
 
     @FormUrlEncoded
-    @POST("/market/download")
-    Call<Void> doMarketDownload();
+    @DELETE("/market")
+    Call<Void> deleteMarket(@Field("preset_id") int presetId);
 
     @FormUrlEncoded
-    @GET("/preset/own")
-    Call<JsonObject> getOwnPreset();
+    @GET("/market/download")
+    Call<JsonObject> doMarketDownload(@Field("email") String email,
+                                @Field("preset_id") int presetId);
 
     @FormUrlEncoded
-    @POST("/preset/uploaded")
-    Call<JsonObject> getUploadedPreset();
+    @GET("/market/like")
+    Call<JsonObject> getMarketLike(@Field("preset_id") int presetId);
+
+    @FormUrlEncoded
+    @GET("/preset")
+    Call<JsonObject> getOwnPreset(@Field("email") String email);
+
+    @FormUrlEncoded
+    @POST("/preset")
+    Call<JsonObject> doUploadPreset(@Field("email") String email,
+                                    @Field("title") String title,
+                                    @Field("hash_tags") String hash_tags,
+                                    @Field("exposure") double exposure,
+                                    @Field("contrast") int contrast,
+                                    @Field("highlight") int highlight,
+                                    @Field("blackpoint") int blackpoint,
+                                    @Field("white") int white,
+                                    @Field("black") int black,
+                                    @Field("temperature") int temporature,
+                                    @Field("tone") int tone,
+                                    @Field("chroma") int chroma);
+    
+    @FormUrlEncoded
+    @DELETE("/preset")
+    Call<Void> deletePreset(@Field("preset_id") int presetId);
 
     @FormUrlEncoded
     @GET("/preset/detail")
-    Call<Void> getPresetDetail();
+    Call<Void> getPresetDetail(@Field("preset_id") int presetId);
 
     @FormUrlEncoded
-    @GET("/mypage")
-    Call<Void> getMyPage();
+    @GET("/preset/uploaded")
+    Call<JsonObject> getUploadedPreset(@Field("email") String email);
+
+    @FormUrlEncoded
+    @GET("/profile_image")
+    Call<JsonObject> getProfileImage(@Field("email") String email);
+
+    @POST("/profile_image")
+    Call<Void> postProfileImage(@Field("image") File image);
 }

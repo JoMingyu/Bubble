@@ -21,12 +21,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
         <activity
             android:name=".activities.Splash"
+<<<<<<< HEAD
             android:theme="@style/SplashTheme" />
 
 
@@ -90,12 +89,27 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".activities.UploadPreset">
+=======
+            android:theme="@style/SplashTheme">
+>>>>>>> 22037a5017c950b6ba7c3d68f6a25d732b48995e
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.SignIn"/>
+        <activity android:name=".activities.Main"/>
+        <activity android:name=".activities.SignUp" />
+        <activity android:name=".activities.Filter"/>
+        <activity android:name=".activities.Photo"/>
+        <activity android:name=".activities.MyPage"/>
+        <activity android:name=".activities.MyPreset"/>
+        <activity android:name=".activities.PhotoFilter"/>
+        <activity android:name=".activities.UploadedPreset"/>
+        <activity android:name=".activities.PresetDetail"/>
+        <activity android:name=".activities.BubbleMarket"/>
+        <activity android:name=".activities.UploadPreset"/>
     </application>
 
 </manifest>
