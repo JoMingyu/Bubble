@@ -36,10 +36,8 @@ public class SignIn extends AppCompatActivity {
     private APIinterface apIinterface;
     private CallbackManager callbackManager;
     private ImageView background;
-    private Button signInSubmitBtn;
-    private LoginButton loginButton;
-    private EditText inputId;
-    private EditText inputPw;
+    private Button signInSubmitBtn, facebookSignIn, googleSignIn;
+    private EditText inputId, inputPw;
     private boolean isSns = false;
 
     @Override
@@ -48,35 +46,43 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.sign_in);
 
         apIinterface = APIclient.getClient().create(APIinterface.class);
-        callbackManager = CallbackManager.Factory.create();
         background = (ImageView)findViewById(R.id.background);
         signInSubmitBtn = (Button)findViewById(R.id.signInSubmit);
-//        loginButton = (LoginButton)findViewById(R.id.facebook_login);
+        facebookSignIn = (Button)findViewById(R.id.facebookSignIn);
+        googleSignIn = (Button)findViewById(R.id.googleSignIn);
         inputId = (EditText)findViewById(R.id.inputId);
         inputPw = (EditText)findViewById(R.id.inputPw);
 
         Glide.with(getApplicationContext()).load(R.drawable.bg_account).into(background);
 
-//        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onError(FacebookException error) {
-//                Log.e("LoginErr",error.toString());
-//            }
-//        });
+        facebookSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callbackManager = CallbackManager.Factory.create();
+                LoginManager.getInstance().logInWithReadPermissions(SignIn.this, Arrays.asList("public_profile", "email"));
+                LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+
+                    }
+                });
+            }
+        });
 
         signInSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isSns = false;
                 apIinterface.doSignIn(
                         isSns,
                         inputId.getText().toString(),
