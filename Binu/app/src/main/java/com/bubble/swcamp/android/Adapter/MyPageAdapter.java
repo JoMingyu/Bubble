@@ -1,12 +1,10 @@
 package com.bubble.swcamp.android.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bubble.swcamp.android.R;
-import com.bubble.swcamp.android.activities.Photo;
-import com.bubble.swcamp.android.activities.UploadedPreset;
 import com.bumptech.glide.Glide;
 
 /**
@@ -66,13 +62,6 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.line.setBackgroundColor(Color.parseColor("#EF5350"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResC));
                 params.setMargins(30, 15, 15, 15);
-                holder.bgMyPageBase.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(mContext, Photo.class);
-                        mContext.startActivity(intent);
-                    }
-                });
                 break;
             case 3:
                 holder.itemName.setText("프리셋 업로드");
@@ -81,13 +70,6 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.line.setBackgroundColor(Color.parseColor("#AB47BC"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResD));
                 params.setMargins(15, 15, 30, 15);
-                holder.bgMyPageBase.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(mContext, UploadedPreset.class);
-                        mContext.startActivity(intent);
-                    }
-                });
                 break;
             case 4:
                 holder.itemName.setText("프리셋 다운로드");
