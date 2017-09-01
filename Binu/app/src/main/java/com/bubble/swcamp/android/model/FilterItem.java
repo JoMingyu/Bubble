@@ -1,34 +1,38 @@
 package com.bubble.swcamp.android.model;
 
-import com.bubble.swcamp.android.activities.Filter;
 
+
+import android.graphics.Bitmap;
+
+import com.bubble.swcamp.android.activities.Filter;
 /**
  * Created by dsm2016 on 2017-09-01.
  */
 
 public class FilterItem {
-    private int image;
-    private String title;
+    private String mtitle;
+    public com.zomato.photofilters.imageprocessors.Filter filter;
 
-    public FilterItem(int image,String title){
-        this.image=image;
-        this.title=title;
+    public FilterItem(String title) {
+        bitmap = null;
+        this.mtitle=title;
+        filter = new com.zomato.photofilters.imageprocessors.Filter();
+    }
+    public Bitmap getBitmap() {
+        return bitmap;
     }
 
-    public int getImage() {
-        return image;
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
+    public Bitmap bitmap;
+
+
 
     public String getTitle() {
-        return title;
+        return mtitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
 }

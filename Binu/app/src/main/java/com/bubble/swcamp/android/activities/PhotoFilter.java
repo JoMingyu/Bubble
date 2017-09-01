@@ -1,6 +1,7 @@
 package com.bubble.swcamp.android.activities;
 
 
+import android.graphics.BitmapFactory;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,13 +12,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.fragments.FilterBrightnessFragment;
 import com.bubble.swcamp.android.fragments.FilterSetupFragment;
 import com.bubble.swcamp.android.fragments.FilterTemperatureFragment;
+import com.zomato.photofilters.imageprocessors.*;
 
-    public class PhotoFilter extends AppCompatActivity {
+public class PhotoFilter extends AppCompatActivity {
 
         static{
             System.loadLibrary("NativeImageProcessor");
@@ -86,7 +89,7 @@ import com.bubble.swcamp.android.fragments.FilterTemperatureFragment;
                 Log.d("xxx Main", "getItem: " + position);
                 switch (position){
                     case 0:
-                        return new FilterSetupFragment();
+                        return new FilterSetupFragment(getApplicationContext());
                     case 1:
                         return new FilterBrightnessFragment();
                     case 2:
@@ -102,11 +105,14 @@ import com.bubble.swcamp.android.fragments.FilterTemperatureFragment;
             }
         }
 
-        private void setNextButtonText(int currentCount, int maxCount) {
-      /*  if(currentCount + 1 == maxCount){
-            next_button.setText("제출하기");
-        }else{
-            next_button.setText("다음 문항");
-        }*/
+        public void changeImage(int image){
+            ImageView mainView=(ImageView)findViewById(R.id.image_main);
+            mainView.setImageBitmap(BitmapFactory.decodeResource(getResources(),image));
         }
+
+        public void changeFilter(com.zomato.photofilters.imageprocessors.Filter filter){
+
+        }
+
+
 }

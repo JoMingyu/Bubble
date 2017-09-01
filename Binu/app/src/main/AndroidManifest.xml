@@ -30,6 +30,7 @@
             android:theme="@style/SplashTheme">
 
 
+
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN"/> -->
 
@@ -48,10 +49,15 @@
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
-            >>>>>>>
 
         </activity>
         <activity android:name=".activities.Photo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         </activity>
         <activity android:name=".activities.MyPage"></activity>
@@ -62,12 +68,6 @@
         </activity>
 
         <activity android:name=".activities.PhotoFilter">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
 
         </activity>
         <activity android:name=".activities.UploadedPreset" />
@@ -87,11 +87,6 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".activities.UploadPreset" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
