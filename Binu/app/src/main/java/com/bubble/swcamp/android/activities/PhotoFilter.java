@@ -40,10 +40,10 @@ public class PhotoFilter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
+        setButton();
         final ViewPager viewPager=(ViewPager)findViewById(R.id.viewPager);
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
         binding();
-        setButton();
 
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,8 +118,8 @@ public class PhotoFilter extends AppCompatActivity {
 
 
     public void setButton(){
-        Button backBUtton=(Button)findViewById(R.id.ib_toolbar_back);
-        backBUtton.setOnClickListener(new View.OnClickListener() {
+        ImageButton backButton=(ImageButton) findViewById(R.id.ib_toolbar_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
