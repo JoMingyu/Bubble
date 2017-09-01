@@ -6,12 +6,12 @@
     <color name="colorPrimaryDarkAlpha">#a17e57c2</color>
     <color name="colorSplashStart">#e5b2ca</color>
     <color name="colorSplashEnd">#7028e4</color>
-    <color name="colorMyPageResA"></color>
-    <color name="colorMyPageResB"></color>
-    <color name="colorMyPageResC"></color>
+    <color name="colorMyPageResA">#66BB6A</color>
+    <color name="colorMyPageResB">#42A5F5</color>
+    <color name="colorMyPageResC">#EF5350</color>
     <color name="colorMyPageResD">#AB47BC</color>
-    <color name="colorMyPageResE"></color>
-    <color name="colorMyPageResF"></color>
+    <color name="colorMyPageResE">#FF7043</color>
+    <color name="colorMyPageResF">#8D6E63</color>
 
     <!--#b085f5 - #7e57c2 - #4d2c91-->
 </resources>
