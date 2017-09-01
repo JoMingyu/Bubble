@@ -1,6 +1,7 @@
 package com.bubble.swcamp.android.activities;
 
 
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,6 +18,12 @@ import com.bubble.swcamp.android.fragments.FilterSetupFragment;
 import com.bubble.swcamp.android.fragments.FilterTemperatureFragment;
 
     public class PhotoFilter extends AppCompatActivity {
+
+        static{
+            System.loadLibrary("NativeImageProcessor");
+        }
+
+
 
         public static final long ANIMATION_DURATION = 200L;
         private ImageButton brightness;

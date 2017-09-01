@@ -1,5 +1,6 @@
 package com.bubble.swcamp.android.fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,9 @@ import android.widget.Toast;
 import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.adapter.FilterAdapter;
 import com.bubble.swcamp.android.model.FilterItem;
+import com.zomato.photofilters.imageprocessors.Filter;
+import com.zomato.photofilters.imageprocessors.subfilters.BrightnessSubfilter;
+import com.zomato.photofilters.imageprocessors.subfilters.ContrastSubfilter;
 
 import java.util.ArrayList;
 
@@ -24,6 +28,7 @@ public class FilterSetupFragment extends Fragment {
 
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<FilterItem> arrayList;
+    Filter myFilter;
     private String[] spinnerItems = new String[]{
             "카메라",
             "색상",
@@ -94,6 +99,17 @@ public class FilterSetupFragment extends Fragment {
         arrayList.add(new FilterItem(R.drawable.image_color_test,"활력3"));
         return arrayList;
     }
+
+    public void getFilters(ArrayList<FilterItem> arrayList,Bitmap bitmap){
+        myFilter=new Filter();
+
+        myFilter.addSubFilter(new BrightnessSubfilter(30));
+        myFilter.addSubFilter(new ContrastSubfilter(1.1f));
+        
+
+
+    }
+
 
 
 
