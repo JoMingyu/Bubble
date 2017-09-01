@@ -23,9 +23,37 @@ public interface APIinterface {
 
     @FormUrlEncoded
     @POST("/signin")
-    Call<Void> doSignIn(@Field("sns") Boolean sns,
+    Call<Void> doSignIn(@Field("sns") boolean sns,
                         @Field("id") String id,
                         @Field("pw") String pw);
+
+    @FormUrlEncoded
+    @POST("/find_id/demand")
+    Call<Void> doFindIdDemand(@Field("email") String email);
+
+    @FormUrlEncoded
+    @POST("/find_id_verify")
+    Call<Void> doFindIdVerify(@Field("email") String email,
+                              @Field("code") String code);
+
+    @FormUrlEncoded
+    @POST("/find_pw/demand")
+    Call<Void> doFindPwDemand(@Field("email") String email,
+                              @Field("id") String id);
+
+    @FormUrlEncoded
+    @POST("/find_pw/verify")
+    Call<Void> doFindPwVerify(@Field("email") String email,
+                              @Field("code") String code);
+
+    @FormUrlEncoded
+    @POST("/change_password")
+    Call<Void> doChangePassword(@Field("email") String email,
+                                @Field("pw") String pw);
+
+    @FormUrlEncoded
+    @POST("/mypage")
+    Call<JsonObject> getMyPage(@Field("email") String email);
 
     @FormUrlEncoded
     @POST("/market")
