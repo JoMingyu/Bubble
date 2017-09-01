@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flask import request
 
 from support.mysql import query
+from support.account_manager import  get_account_data_from_email
 
 
 class MyPage(Resource):
@@ -33,14 +34,12 @@ class MyPage(Resource):
                 # 다운로드임
                 downloaded_preset += 1
 
-        acc_data = query("SELECT * FROM account WHERE email='{0}'".format(email))
-        if not acc_data:
-            acc_data = query("SELECT * FROM account_sns WHERE email='{0}'".format(email))
+        acc_data = get_account_data_from_email(email)
 
         response = {
-            'nickname': acc_data[0]['nickname'],
-            'date': str(acc_data[0]['signup_date']),
-            'mileage': acc_data[0]['mileage'],
+            'nickname': acc_data['nickname'],
+            'date': str(acc_data['signup_date']),
+            'mileage': acc_data['mileage'],
             'created_preset': created_preset,
             'uploaded_preset': uploaded_preset,
             'downloaded_preset': downloaded_preset,
