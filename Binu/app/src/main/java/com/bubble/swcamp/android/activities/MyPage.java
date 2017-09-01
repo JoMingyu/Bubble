@@ -7,7 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
-import com.bubble.swcamp.android.Adapter.MyPageAdapter;
+import com.bubble.swcamp.android.adapter.MyPageAdapter;
 import com.bubble.swcamp.android.R;
 import com.bumptech.glide.Glide;
 

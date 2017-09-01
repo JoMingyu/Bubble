@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.bubble.swcamp.android.Adapter.MyPresetAdapter;
+import com.bubble.swcamp.android.adapter.MyPresetAdapter;
 import com.bubble.swcamp.android.R;
 
 /**

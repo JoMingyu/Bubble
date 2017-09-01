@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.bubble.swcamp.android.Adapter.UploadedPresetAdapter;
+import com.bubble.swcamp.android.adapter.UploadedPresetAdapter;
 import com.bubble.swcamp.android.R;
 
 /**

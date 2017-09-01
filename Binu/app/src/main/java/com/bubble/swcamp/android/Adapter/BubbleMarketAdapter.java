@@ -1,4 +1,4 @@
-package com.bubble.swcamp.android.Adapter;
+package com.bubble.swcamp.android.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

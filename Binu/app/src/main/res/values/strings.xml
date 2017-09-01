@@ -7,4 +7,5 @@
     <string name="sign_up">회원가입</string>
     <string name="sign_in">로그인</string>
     <string name="search">검색하기</string>
+    <string name="filterEnName"><strong>F</strong>ood <strong>F</strong>ilter</string>
 </resources>
