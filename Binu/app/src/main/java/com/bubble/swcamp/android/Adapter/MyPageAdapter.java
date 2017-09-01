@@ -2,11 +2,13 @@ package com.bubble.swcamp.android.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bubble.swcamp.android.R;
@@ -37,40 +39,46 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.itemName.setTextColor(Color.parseColor("#66BB6A"));
                 holder.aboutItem.setText("현재까지 적립된 마일리지 내역입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#66BB6A"));
+                holder.bgColor.setBackgroundColor(Color.parseColor("#66BB6A"));
                 break;
             case 1:
                 holder.itemName.setText("누적 좋아요");
                 holder.itemName.setTextColor(Color.parseColor("#42A5F5"));
                 holder.aboutItem.setText("현재까지 누적된 좋아요 횟수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#42A5F5"));
+                holder.bgColor.setBackgroundColor(Color.parseColor("#42A5F5"));
                 break;
             case 2:
                 holder.itemName.setText("프리셋 생성");
                 holder.itemName.setTextColor(Color.parseColor("#EF5350"));
                 holder.aboutItem.setText("현재까지 생성하신 프리셋 개수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#EF5350"));
+                holder.bgColor.setBackgroundColor(Color.parseColor("#EF5350"));
                 break;
             case 3:
                 holder.itemName.setText("프리셋 업로드");
                 holder.itemName.setTextColor(Color.parseColor("#AB47BC"));
                 holder.aboutItem.setText("현재까지 누적된 프리셋 업로드 갯수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#AB47BC"));
+                holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResD));
                 break;
             case 4:
                 holder.itemName.setText("프리셋 다운로드");
                 holder.itemName.setTextColor(Color.parseColor("#FF7043"));
                 holder.aboutItem.setText("현재까지 누적된 프리셋 다운로드 갯수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#FF7043"));
+                holder.bgColor.setBackgroundColor(Color.parseColor("#FF7043"));
                 break;
             case 5:
                 holder.itemName.setText("내 프리셋 다운로드");
                 holder.itemName.setTextColor(Color.parseColor("#8D6E63"));
                 holder.aboutItem.setText("현재까지 누적된 내 프리셋 다운로드 수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#8D6E63"));
+                holder.bgColor.setBackgroundColor(Color.parseColor("#8D6E63"));
                 break;
 
         }
-        Glide.with(mContext).load(R.drawable.bg_my_page1+position).into(holder.bgItem);
+//        Glide.with(mContext).load(R.drawable.bg_my_page1+position).into(holder.bgItem);
     }
 
     @Override
@@ -79,18 +87,18 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView bgItem;
         TextView value;
         TextView itemName;
         View line;
         TextView aboutItem;
+        LinearLayout bgColor;
         public ViewHolder(View itemView) {
             super(itemView);
-            this.bgItem = (ImageView) itemView.findViewById(R.id.bg_my_page_item);
             this.value = (TextView) itemView.findViewById(R.id.value);
             this.itemName = (TextView) itemView.findViewById(R.id.item_name);
             this.line = itemView.findViewById(R.id.line);
             this.aboutItem = (TextView) itemView.findViewById(R.id.about_item);
+            this.bgColor = (LinearLayout) itemView.findViewById(R.id.bg_color);
         }
     }
 
