@@ -76,7 +76,7 @@ public class MyPreset extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), UploadPreset.class));
+                startActivity(new Intent(getApplicationContext(), Photo.class));
             }
         });
     }

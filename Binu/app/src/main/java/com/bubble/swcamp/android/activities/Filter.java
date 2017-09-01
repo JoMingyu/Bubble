@@ -2,11 +2,13 @@ package com.bubble.swcamp.android.activities;
 
 
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
 
@@ -17,6 +19,7 @@ import com.bubble.swcamp.android.R;
 
 public class Filter extends AppCompatActivity {
     private Button like, download;
+    private ImageView check;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,6 +28,14 @@ public class Filter extends AppCompatActivity {
 
         like = (Button) findViewById(R.id.like);
         download = (Button) findViewById(R.id.download);
+        check = (ImageView) findViewById(R.id.check);
+
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public void setFilter(View v){
