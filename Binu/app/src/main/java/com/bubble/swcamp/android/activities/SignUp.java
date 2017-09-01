@@ -14,10 +14,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
+import com.bubble.swcamp.android.items.Manager;
 import com.bubble.swcamp.android.network.APIclient;
 import com.bubble.swcamp.android.network.APIinterface;
 import com.bumptech.glide.Glide;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,6 +30,8 @@ import retrofit2.Response;
 
 public class SignUp extends AppCompatActivity {
     private APIinterface apIinterface;
+    private Realm mRealm;
+
     private ImageView background;
     private Button signUpSubmitBtn;
     private EditText inputId;
@@ -45,6 +49,9 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.sign_up);
 
         apIinterface = APIclient.getClient().create(APIinterface.class);
+        mRealm.init(getApplicationContext());
+        mRealm = Realm.getDefaultInstance();
+
         background = (ImageView)findViewById(R.id.background);
         signUpSubmitBtn = (Button)findViewById(R.id.signUpSubmit);
         inputId = (EditText)findViewById(R.id.inputId);
@@ -71,6 +78,9 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.code() == 201){
+                            Manager manager = mRealm.createObject(Manager.class);
+                            if(manager.getEmail().equals(""))
+                            manager.setEmail(inputEmail.getText().toString());
                             startActivity(new Intent(getApplicationContext(), SignIn.class));
                         }
                     }

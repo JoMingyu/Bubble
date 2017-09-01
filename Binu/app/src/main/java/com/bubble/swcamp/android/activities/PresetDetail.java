@@ -3,6 +3,7 @@ package com.bubble.swcamp.android.activities;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
@@ -21,5 +22,9 @@ public class PresetDetail extends AppCompatActivity {
 
         previewImage = (ImageView)findViewById(R.id.preview_image);
         Glide.with(getApplicationContext()).load(R.drawable.kyungsook).into(previewImage);
+    }
+
+    public void onBackBtnClicked(View v){
+        finish();
     }
 }

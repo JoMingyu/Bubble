@@ -1,6 +1,9 @@
 package com.bubble.swcamp.android.network;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+
+import org.json.JSONArray;
 
 import java.io.File;
 
@@ -106,7 +109,7 @@ public interface APIinterface {
     @POST("/preset")
     Call<JsonObject> doUploadPreset(@Field("email") String email,
                                     @Field("title") String title,
-                                    @Field("hash_tags") String hash_tags,
+                                    @Field("hash_tags") JSONArray hash_tags,
                                     @Field("exposure") double exposure,
                                     @Field("contrast") int contrast,
                                     @Field("highlight") int highlight,

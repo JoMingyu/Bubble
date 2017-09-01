@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bubble.swcamp.android.adapter.BubbleMarketAdapter;
 import com.bubble.swcamp.android.R;
@@ -24,5 +25,9 @@ public class BubbleMarket extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.bubble_market_items);
         recyclerView.setAdapter(new BubbleMarketAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+    }
+
+    public void onBackBtnClicked(View v){
+        finish();
     }
 }

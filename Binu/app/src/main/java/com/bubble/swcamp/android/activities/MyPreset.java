@@ -36,4 +36,8 @@ public class MyPreset extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackBtnClicked(View v){
+        finish();
+    }
 }
