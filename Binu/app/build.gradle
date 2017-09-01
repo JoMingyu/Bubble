@@ -32,6 +32,7 @@ dependencies {
     compile('com.squareup.retrofit2:retrofit:2.3.0') {
         exclude module: 'okhttp'
     }
+    compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
