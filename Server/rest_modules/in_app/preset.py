@@ -16,6 +16,8 @@ class Preset(Resource):
         for index in range(len(data)):
             data[index]['added_date'] = str(data[index]['added_date'])
             # Serialize 오류 제거
+            data[index]['poss'] = data[index]['poss'] == 1
+            data[index]['uploaded'] = data[index]['uploaded'] == 1
 
             acc_data = query("SELECT nickname FROM account WHERE email='{0}'".format(email))
             if not acc_data:
