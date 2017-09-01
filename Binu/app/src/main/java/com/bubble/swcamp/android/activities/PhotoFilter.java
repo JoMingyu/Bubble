@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -42,6 +43,7 @@ public class PhotoFilter extends AppCompatActivity {
         final ViewPager viewPager=(ViewPager)findViewById(R.id.viewPager);
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
         binding();
+        setButton();
 
         setup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,4 +117,14 @@ public class PhotoFilter extends AppCompatActivity {
     }
 
 
+    public void setButton(){
+        Button backBUtton=(Button)findViewById(R.id.ib_toolbar_back);
+        backBUtton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
 }
