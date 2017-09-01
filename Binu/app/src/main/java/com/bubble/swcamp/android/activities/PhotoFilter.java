@@ -2,10 +2,7 @@ package com.bubble.swcamp.android.activities;
 
 
 import android.content.Intent;
-<<<<<<< HEAD
 import android.graphics.Bitmap;
-=======
->>>>>>> 97502598b30ad5685be0dd4dd75f343acc8ec710
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
