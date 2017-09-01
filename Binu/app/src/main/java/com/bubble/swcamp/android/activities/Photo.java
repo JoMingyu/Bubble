@@ -28,6 +28,7 @@ public class Photo extends AppCompatActivity {
 
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<SampleImage> arrayList;
+    private Uri uri;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -36,7 +37,7 @@ public class Photo extends AppCompatActivity {
 
                 ImageView imageView = (ImageView) findViewById(R.id.real_image);
                 //Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
-                Uri uri = data.getData();
+                 uri = data.getData();
                 ImageView imageView_gab=(ImageView)findViewById(R.id.sample_image);
                 imageView_gab.setVisibility(View.GONE);
                 /*Intent intent=new Intent(getApplicationContext(),SamplePhotoAdapter.class);
@@ -44,6 +45,7 @@ public class Photo extends AppCompatActivity {
                 startActivity(intent);*/
 
                 Glide.with(getApplicationContext()).load(uri).into(imageView);
+
             }
 
         }
@@ -135,6 +137,7 @@ public class Photo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplication(),PhotoFilter.class);
+                intent.putExtra("image",uri.toString());
                 startActivity(intent);
                 finish();
             }
