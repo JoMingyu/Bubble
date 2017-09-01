@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.bubble.swcamp.android.R;
@@ -40,6 +41,7 @@ public class UploadPreset extends AppCompatActivity {
     private RecyclerView recyclerView;
     private APIinterface apiInterface;
     private Realm mRealm;
+    private Button submit;
     private RealmResults<Manager> realmResults;
     private JSONArray jsonArray;
     private int hashCount = 0;
@@ -50,37 +52,38 @@ public class UploadPreset extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.photo_recyclerView);
         recyclerView.setAdapter(new UploadPresetAdapter());
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+        submit = (Button) findViewById(R.id.submit);
+        inputTitle = (EditText) findViewById(R.id.input_title);
+        inputSummary = (EditText) findViewById(R.id.input_summary);
+        inputTag = (EditText) findViewById(R.id.input_tag);
 
         mRealm.init(getApplicationContext());
         mRealm = Realm.getDefaultInstance();
         realmResults = mRealm.where(Manager.class).findAll();
-
-        recyclerView.setAdapter(new UploadedPresetAdapter());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         apiInterface = APIclient.getClient().create(APIinterface.class);
-
-        apiInterface.doUploadPreset(realmResults.get(0).getEmail(),
-                inputTitle.getText().toString(),
-                jsonArray,
-                0, 0, 0, 0, 0, 0, 0, 0, 0).enqueue(new Callback<JsonObject>() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if(response.code() == 201){
-                    Intent intent = new Intent(getApplicationContext(), MyPreset.class);
-                    intent.putExtra("preset_id", response.body().get("preset_id").getAsInt());
-                    startActivity(new Intent(getApplicationContext(), MyPreset.class));
-                }
-            }
+            public void onClick(View v) {
+                apiInterface.doUploadPreset(realmResults.get(0).getEmail(),
+                        inputTitle.getText().toString(),
+                        jsonArray,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0).enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        if(response.code() == 201){
+                            Intent intent = new Intent(getApplicationContext(), MyPreset.class);
+                            intent.putExtra("preset_id", response.body().get("preset_id").getAsInt());
+                            startActivity(new Intent(getApplicationContext(), MyPreset.class));
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
 
+                    }
+                });
             }
         });
-
-        inputTitle = (EditText) findViewById(R.id.input_title);
-        inputSummary = (EditText) findViewById(R.id.input_summary);
-        inputTag = (EditText) findViewById(R.id.input_tag);
     }
 
     public void onBackBtnClicked(View v){

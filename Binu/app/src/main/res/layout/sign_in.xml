@@ -89,7 +89,8 @@
                 android:layout_marginRight="15dp"
                 android:hint="비밀번호"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:textColorHint="@android:color/white"
+                android:inputType="textPassword"/>
         </LinearLayout>
 
         <RelativeLayout
