@@ -13,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
@@ -38,10 +39,10 @@ public class Photo extends AppCompatActivity {
                 Uri uri = data.getData();
                 ImageView imageView_gab=(ImageView)findViewById(R.id.sample_image);
                 imageView_gab.setVisibility(View.GONE);
-/*
-                Intent intent=new Intent(getApplicationContext(),SamplePhotoAdapter.class);
+                /*Intent intent=new Intent(getApplicationContext(),SamplePhotoAdapter.class);
                 intent.putExtra("image",data);
                 startActivity(intent);*/
+
                 Glide.with(getApplicationContext()).load(uri).into(imageView);
             }
 
@@ -58,8 +59,9 @@ public class Photo extends AppCompatActivity {
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.photo_recyclerView);
 
         getData();
+        setBuuton();
 
-        recyclerView.setAdapter(new SamplePhotoAdapter(getApplicationContext(),arrayList));
+        recyclerView.setAdapter(new SamplePhotoAdapter(getApplicationContext()));
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(3,dpToPx(70),true));
         recyclerView.setLayoutManager(layoutManager);
 
@@ -118,4 +120,25 @@ public class Photo extends AppCompatActivity {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dp,r.getDisplayMetrics()));
     }
+
+    public void setBuuton(){
+        Button back=(Button)findViewById(R.id.back_button);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        Button next=(Button)findViewById(R.id.next_button);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplication(),PhotoFilter.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
 }

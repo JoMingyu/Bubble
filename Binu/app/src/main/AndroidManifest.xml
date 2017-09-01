@@ -21,29 +21,47 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
         <activity
             android:name=".activities.Splash"
             android:theme="@style/SplashTheme">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SignIn"/>
-        <activity android:name=".activities.Main"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity android:name=".activities.SignIn" />
+        <activity android:name=".activities.Main" />
         <activity android:name=".activities.SignUp" />
-        <activity android:name=".activities.Filter"/>
+        <activity android:name=".activities.Filter" />
         <activity android:name=".activities.Photo"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+
         <activity android:name=".activities.MyPage"/>
         <activity android:name=".activities.MyPreset"/>
+
+
         <activity android:name=".activities.PhotoFilter"/>
-        <activity android:name=".activities.UploadedPreset"/>
-        <activity android:name=".activities.PresetDetail"/>
-        <activity android:name=".activities.BubbleMarket"/>
-        <activity android:name=".activities.UploadPreset"/>
+
+
+
+        <activity android:name=".activities.UploadedPreset" />
+        <activity android:name=".activities.PresetDetail" />
+        <activity android:name=".activities.BubbleMarket" />
+        <activity android:name=".activities.UploadPreset" />
+
     </application>
 
 </manifest>

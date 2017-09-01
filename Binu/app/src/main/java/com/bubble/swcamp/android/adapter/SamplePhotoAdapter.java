@@ -24,10 +24,10 @@ public class SamplePhotoAdapter extends RecyclerView.Adapter<SamplePhotoAdapter.
     ArrayList<SampleImage> arrayList;
     public static int REQUEST_CODE=1;
     Context context;
+    Intent mIntent;
 
-    public SamplePhotoAdapter(Context mcontext, ArrayList<SampleImage> images){
-        this.context=mcontext;
-        this.arrayList=images;
+    public SamplePhotoAdapter(Context mContext){
+        this.context=mContext;
     }
 
     @Override
@@ -38,21 +38,103 @@ public class SamplePhotoAdapter extends RecyclerView.Adapter<SamplePhotoAdapter.
     }
 
     @Override
-    public void onBindViewHolder(SamplePhotoAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageResource(R.drawable.ic_camera_add);
+    public void onBindViewHolder(SamplePhotoAdapter.ViewHolder holder, final int position) {
+        //holder.imageView.setImageResource(R.drawable.ic_camera_add);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doTakePhoto();
-
-
             }
         });
+
+        switch (position){
+            case 0:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 1:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 2:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 3:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 4:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 5:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 6:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 7:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+            case 8:
+                holder.imageView.setImageResource(R.drawable.ic_camera_add);
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        doTakePhoto();
+                    }
+                });
+                break;
+        }
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return 9;
     }
 
 

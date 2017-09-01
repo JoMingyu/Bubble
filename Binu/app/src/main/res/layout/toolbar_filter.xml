@@ -15,13 +15,14 @@
 
         <ImageButton
             android:id="@+id/ib_toolbar_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
+            android:scaleType="fitXY"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_back_arrow" />
+            android:src="@drawable/ic_back_arrow"/>
 
         <ImageButton
             android:id="@+id/fix"
