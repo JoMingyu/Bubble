@@ -3,8 +3,11 @@ package com.bubble.swcamp.android.fragments;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -48,9 +51,13 @@ public class FilterSetupFragment extends Fragment implements FilterItemCallback 
     }
 
     Context mcontext;
+    Bitmap mBitmap;
+
+
     @SuppressLint("ValidFragment")
-    public FilterSetupFragment(Context context){
+    public FilterSetupFragment(Context context, Bitmap bitmap){
         mcontext=context;
+        this.mBitmap=bitmap;
     }
 
     Activity activity;
@@ -77,8 +84,9 @@ public class FilterSetupFragment extends Fragment implements FilterItemCallback 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_fliter_setup, null);
+
+
         mainImage = (ImageView)rootView.findViewById(R.id.main_image);
-        ((PhotoFilter)getActivity()).changeImage(R.drawable.test_image);
         init(rootView);
 
         return rootView;
@@ -122,12 +130,15 @@ public class FilterSetupFragment extends Fragment implements FilterItemCallback 
 
     public void bindingData() {
         Log.d("Binding----------Data","bindingData()");
+
+
         final Context context = getActivity();
         android.os.Handler handler = new android.os.Handler();
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                Bitmap bitmapImage = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.test_image), 640, 640, false);
+                Bitmap bitmapImage = Bitmap.createBitmap(mBitmap);
+
                 FilterItem f1 = new FilterItem("따듯한");
                 FilterItem f2 = new FilterItem("선명한");
                 FilterItem f3 = new FilterItem("밝은");
@@ -167,7 +178,7 @@ public class FilterSetupFragment extends Fragment implements FilterItemCallback 
                 List<FilterItem> thumbs = FilterltemManger.processThumbs(context);
 
 
-                FilterAdapter adapter = new FilterAdapter(thumbs, context);
+                FilterAdapter adapter = new FilterAdapter(thumbs, context,mBitmap);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -179,6 +190,7 @@ public class FilterSetupFragment extends Fragment implements FilterItemCallback 
     @Override
     public void onItemClick(Filter filter) {
         mainImage.setImageBitmap(filter.processFilter(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.test_image), 640, 640, false)));
-
     }
+
+
 }

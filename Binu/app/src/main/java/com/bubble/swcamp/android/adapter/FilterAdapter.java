@@ -33,14 +33,16 @@ public class FilterAdapter extends RecyclerView.Adapter<FilterAdapter.ViewHolder
     private FilterItemCallback mfilterItemCallback;
     private static int lastPosition = -1;
     private Context context;
+    private Bitmap mBitmap;
 
 
 
-    public FilterAdapter(List<FilterItem> items, Context context){
+    public FilterAdapter(List<FilterItem> items, Context context,Bitmap bitmap){
         //this.mfilterItemCallback=filterItemCallback;
         this.arrayList=items;
         this.count=items.size();
         this.context=context;
+        this.mBitmap=bitmap;
     }
 
 
@@ -65,8 +67,12 @@ public class FilterAdapter extends RecyclerView.Adapter<FilterAdapter.ViewHolder
             @Override
             public void onClick(View v) {
 
-                main_imageView.setImageBitmap(filterItem.filter.processFilter(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.test_image), 640, 640, false)));
+
+                main_imageView.setImageBitmap(filterItem.filter.processFilter(mBitmap));
                 Log.d("--------","click");
+/*
+                mainImage.setImageBitmap(filter.processFilter(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.test_image), 640, 640, false)));
+*/
 
             }
 
