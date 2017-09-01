@@ -3,16 +3,8 @@ from flask import request
 
 from support.mysql import query
 
-import json
-
 
 class MyPage(Resource):
-    # 사이드바
-    def post(self):
-        email = request.form['email']
-
-
-class MyPageDetail(Resource):
     # 마이페이지 들어가기
     def post(self):
         email = request.form['email']
@@ -56,4 +48,4 @@ class MyPageDetail(Resource):
             'download': download
         }
 
-        return json.dumps(response)
+        return response
