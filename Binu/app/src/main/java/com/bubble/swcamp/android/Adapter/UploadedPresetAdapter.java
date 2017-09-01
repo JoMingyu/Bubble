@@ -15,11 +15,12 @@ public class UploadedPresetAdapter extends RecyclerView.Adapter<UploadedPresetAd
     @Override
     public UploadedPresetAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.uploaded_preset_items, parent, false);
-        return new UploadedPresetAdapter.ViewHolder(v);
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(UploadedPresetAdapter.ViewHolder holder, int position) {
+
     }
 
     @Override

@@ -44,9 +44,5 @@ public class Filter extends AppCompatActivity {
             default: break;
         }
     }
-
-    public void onBackBtnClicked(View v){
-        finish();
-    }
 }
 

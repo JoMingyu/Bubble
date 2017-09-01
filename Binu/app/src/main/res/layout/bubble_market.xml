@@ -19,8 +19,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/ic_back_arrow"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="18dp"
-                android:onClick="onBackBtnClicked"/>
+                android:layout_marginLeft="18dp"/>
 
             <TextView
                 android:layout_width="wrap_content"

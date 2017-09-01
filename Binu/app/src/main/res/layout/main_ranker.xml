@@ -7,10 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/ranker_mask"/>
     <ImageView
         android:layout_width="80dp"
         android:layout_height="25dp"

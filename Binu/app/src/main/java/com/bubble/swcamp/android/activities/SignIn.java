@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.network.APIclient;
@@ -39,7 +38,6 @@ public class SignIn extends AppCompatActivity {
     private ImageView background;
     private Button signInSubmitBtn, facebookSignIn, googleSignIn;
     private EditText inputId, inputPw;
-    private TextView signUp;
     private boolean isSns = false;
 
     @Override
@@ -54,7 +52,6 @@ public class SignIn extends AppCompatActivity {
         googleSignIn = (Button)findViewById(R.id.googleSignIn);
         inputId = (EditText)findViewById(R.id.inputId);
         inputPw = (EditText)findViewById(R.id.inputPw);
-        signUp = (TextView)findViewById(R.id.signUp);
 
         Glide.with(getApplicationContext()).load(R.drawable.bg_account).into(background);
 
@@ -102,13 +99,6 @@ public class SignIn extends AppCompatActivity {
 
                     }
                 });
-            }
-        });
-
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SignUp.class));
             }
         });
     }

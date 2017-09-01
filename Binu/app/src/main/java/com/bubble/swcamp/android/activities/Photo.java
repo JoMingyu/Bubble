@@ -49,7 +49,7 @@ public class Photo extends AppCompatActivity {
         }
     }
 
-   
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
