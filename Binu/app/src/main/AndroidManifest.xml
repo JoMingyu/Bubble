@@ -28,66 +28,31 @@
         <activity
             android:name=".activities.Splash"
             android:theme="@style/SplashTheme">
+        </activity>
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN"/> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <activity android:name=".activities.SignIn"></activity>
+        <activity android:name=".activities.SignIn" />
         <activity android:name=".activities.Main" />
         <activity android:name=".activities.SignUp" />
-        <activity android:name=".activities.Filter">
-
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-
-        </activity>
+        <activity android:name=".activities.Filter" />
         <activity android:name=".activities.Photo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
         </activity>
-        <activity android:name=".activities.MyPage"></activity>
-
-
-        <activity android:name=".activities.MyPreset">
-
-        </activity>
-
-        <activity android:name=".activities.PhotoFilter">
-
-        </activity>
+        <activity android:name=".activities.MyPage" />
+        <activity android:name=".activities.MyPreset" />
+        <activity android:name=".activities.PhotoFilter" />
         <activity android:name=".activities.UploadedPreset" />
-
-        <activity android:name=".activities.PresetDetail" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".activities.BubbleMarket" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".activities.UploadPreset" >
-        </activity>
+        <activity android:name=".activities.PresetDetail" />
+        <activity android:name=".activities.BubbleMarket" />
+        <activity android:name=".activities.UploadPreset" />
     </application>
 
 </manifest>

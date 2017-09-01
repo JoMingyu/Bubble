@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bubble.swcamp.android.adapter.MyPageAdapter;
@@ -35,5 +36,9 @@ public class MyPage extends AppCompatActivity {
 
         Glide.with(getApplicationContext()).load(R.drawable.heize).into(bgProfile);
         Glide.with(getApplicationContext()).load(R.drawable.heize).into(bgCircleProfile);
+    }
+
+    public void onBackBtnClicked(View v){
+        finish();
     }
 }
