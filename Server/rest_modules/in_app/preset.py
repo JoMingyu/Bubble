@@ -32,7 +32,7 @@ class Preset(Resource):
         title = request.form['title']
         hash_tags = request.form['hash_tags']
 
-        query("INSERT INTO preset(owner, title, uploaded, like_count, download_count, creation_date, hash_tags) VALUES('{0}', '{1}', 0, 0, 0, CURDATE(), '{2}')"
+        query("INSERT INTO preset(owner, title, uploaded, male_like_count, female_like_count, download_count, creation_date, hash_tags) VALUES('{0}', '{1}', 0, 0, 0, 0, CURDATE(), '{2}')"
               .format(email, title, hash_tags))
 
         new_preset_id = query("SELECT preset_id FROM preset ORDER BY preset_id DESC")[0]['preset_id']
@@ -90,9 +90,12 @@ class PresetDetail(Resource):
 
         response = dict()
 
-        preset_data = query("SELECT title, uploaded, like_count, download_count, creation_date, hash_tags FROM preset WHERE preset_id={0}".format(preset_id))[0]
+        preset_data = query("SELECT title, uploaded, male_like_count, female_like_count, download_count, creation_date, hash_tags FROM preset WHERE preset_id={0}".format(preset_id))[0]
         # preset_id, owner, title, uploaded, like_count, download_count, creation_date, hash_tags
         preset_data['creation_date'] = str(preset_data['creation_date'])
+        preset_data['like_count'] = preset_data['male_like_count'] + preset_data['female_like_count']
+        del preset_data['male_like_count']
+        del preset_data['female_like_count']
 
         market_data = query("SELECT is_free FROM market WHERE preset_id={0}".format(preset_id))[0]
 
