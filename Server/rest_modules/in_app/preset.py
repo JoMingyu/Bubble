@@ -2,26 +2,28 @@ from flask_restful import Resource
 from flask import request
 
 from support.mysql import query
+from support.account_manager import get_account_data_from_email
 
 
 class Preset(Resource):
     def get(self):
         # '내 프리셋' 리스트 데이터 가져오기
-        # 필요한 데이터 : 프리셋 id, 이름, 소유여부, 업로드여부, 추가일
+        # 필요한 데이터 : 프리셋 id, 이름, 소유여부, 업로드여부, 추가일, 해시태그, 닉네임, 이미지
 
         email = request.args['email']
-        data = query("SELECT preset_id, title, poss, uploaded, added_date FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
+        data = query("SELECT preset_id, title, poss, uploaded, added_date, hash_tags, image_name, preset.owner FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
         # 충분한 데이터 조회를 위해 내 프리셋과 프리셋 테이블 join
 
         for index in range(len(data)):
             data[index]['added_date'] = str(data[index]['added_date'])
             # Serialize 오류 제거
+            data[index]['poss'] = data[index]['poss'] == 1
+            data[index]['uploaded'] = data[index]['uploaded'] == 1
 
-            acc_data = query("SELECT nickname FROM account WHERE email='{0}'".format(email))
-            if not acc_data:
-                acc_data = query("SELECT nickname FROM account_sns WHERE email='{0}'".format(email))
+            acc_data = get_account_data_from_email(data[index]['owner'])
+            del data[index]['owner']
 
-            data[index]['nickname'] = acc_data[0]['nickname']
+            data[index]['nickname'] = acc_data['nickname']
             # 닉네임 추가
 
         return data
@@ -32,7 +34,7 @@ class Preset(Resource):
         title = request.form['title']
         hash_tags = request.form['hash_tags']
 
-        query("INSERT INTO preset(owner, title, uploaded, like_count, download_count, creation_date, hash_tags) VALUES('{0}', '{1}', 0, 0, 0, CURDATE(), '{2}')"
+        query("INSERT INTO preset(owner, title, uploaded, male_like_count, female_like_count, download_count, creation_date, hash_tags) VALUES('{0}', '{1}', 0, 0, 0, 0, CURDATE(), '{2}')"
               .format(email, title, hash_tags))
 
         new_preset_id = query("SELECT preset_id FROM preset ORDER BY preset_id DESC")[0]['preset_id']
@@ -53,7 +55,7 @@ class Preset(Resource):
         query("INSERT INTO preset_options VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})"
               .format(new_preset_id, exposure, contrast, highlight, blackpoint, white, black, temperature, tone, chroma))
 
-        return '', 201
+        return {'preset_id': new_preset_id}, 201
 
     def delete(self):
         # 프리셋 제거
@@ -90,9 +92,12 @@ class PresetDetail(Resource):
 
         response = dict()
 
-        preset_data = query("SELECT title, uploaded, like_count, download_count, creation_date, hash_tags FROM preset WHERE preset_id={0}".format(preset_id))[0]
+        preset_data = query("SELECT title, uploaded, male_like_count, female_like_count, download_count, creation_date, hash_tags FROM preset WHERE preset_id={0}".format(preset_id))[0]
         # preset_id, owner, title, uploaded, like_count, download_count, creation_date, hash_tags
         preset_data['creation_date'] = str(preset_data['creation_date'])
+        preset_data['like_count'] = preset_data['male_like_count'] + preset_data['female_like_count']
+        del preset_data['male_like_count']
+        del preset_data['female_like_count']
 
         market_data = query("SELECT is_free FROM market WHERE preset_id={0}".format(preset_id))[0]
 
