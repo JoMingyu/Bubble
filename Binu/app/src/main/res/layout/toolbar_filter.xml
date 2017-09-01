@@ -49,6 +49,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_check" />
+            android:src="@drawable/ic_check"
+            android:onClick="submit"/>
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

@@ -1,6 +1,7 @@
 package com.bubble.swcamp.android.activities;
 
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -118,7 +119,7 @@ public class PhotoFilter extends AppCompatActivity {
 
 
     public void setButton(){
-        Button backBUtton=(Button)findViewById(R.id.ib_toolbar_back);
+        ImageButton backBUtton=(ImageButton)findViewById(R.id.ib_toolbar_back);
         backBUtton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,5 +127,9 @@ public class PhotoFilter extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void submit(View v){
+        startActivity(new Intent(getApplicationContext(), CreatePreset.class));
     }
 }

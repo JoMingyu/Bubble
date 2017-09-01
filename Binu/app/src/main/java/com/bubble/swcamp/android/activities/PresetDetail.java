@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class PresetDetail extends AppCompatActivity {
     private ImageView previewImage;
     private Intent intent;
     private TextView presetName, whoosePreset, downloadCount, uploadDate, likeCount;
+    private Button storeUpload;
     private APIinterface apiInterface;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class PresetDetail extends AppCompatActivity {
         downloadCount = (TextView)findViewById(R.id.download_count);
         uploadDate = (TextView)findViewById(R.id.download_count);
         likeCount = (TextView)findViewById(R.id.like_count);
+        storeUpload = (Button)findViewById(R.id.storeUpload);
         apiInterface.getPresetDetail(intent.getIntExtra("preset_id", 0)).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -54,6 +57,15 @@ public class PresetDetail extends AppCompatActivity {
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
 
+            }
+        });
+
+        storeUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(getApplicationContext(), UploadPreset.class);
+                mIntent.putExtra("title", presetName.getText().toString());
+                startActivity(mIntent);
             }
         });
 

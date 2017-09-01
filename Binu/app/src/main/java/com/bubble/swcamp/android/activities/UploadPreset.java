@@ -71,9 +71,8 @@ public class UploadPreset extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                         if(response.code() == 201){
-                            Intent intent = new Intent(getApplicationContext(), MyPreset.class);
-                            intent.putExtra("preset_id", response.body().get("preset_id").getAsInt());
-                            startActivity(new Intent(getApplicationContext(), MyPreset.class));
+                            Intent intent = new Intent(getApplicationContext(), BubbleMarket.class);
+                            startActivity(intent);
                         }
                     }
 
