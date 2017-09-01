@@ -41,6 +41,15 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="18dp"
                 android:src="@drawable/ic_filter" />
+
+            <ImageView
+                android:id="@+id/addBtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_toLeftOf="@+id/filterBtn"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="18dp"
+                android:src="@drawable/ic_add_no_circle" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.RecyclerView

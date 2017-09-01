@@ -78,9 +78,14 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.code() == 201){
-                            Manager manager = mRealm.createObject(Manager.class);
-                            if(manager.getEmail().equals(""))
-                            manager.setEmail(inputEmail.getText().toString());
+                            mRealm.executeTransaction(new Realm.Transaction() {
+                                @Override
+                                public void execute(Realm realm) {
+                                    Manager manager = mRealm.createObject(Manager.class);
+                                    if(manager.getEmail().equals("") && manager.getEmail() != null)
+                                        manager.setEmail(inputEmail.getText().toString());
+                                }
+                            });
                             startActivity(new Intent(getApplicationContext(), SignIn.class));
                         }
                     }

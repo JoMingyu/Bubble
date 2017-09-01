@@ -181,7 +181,7 @@
                     android:layout_height="200dp"
                     android:layout_margin="8dp">
                     <ImageView
-                        android:id="@+id/real_image"
+                        android:id="@+id/main_image"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                     <ImageView

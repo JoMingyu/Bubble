@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 
 import java.io.File;
+import java.lang.reflect.Array;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -13,6 +15,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by geni on 2017. 8. 31..
@@ -73,13 +76,12 @@ public interface APIinterface {
                              @Field("image") File image);
     
     @GET("/preset/image")
-    Call<JsonObject> getPresetImage(@Field("preset_id") int presetId);
+    Call<JsonObject> getPresetImage(@Query("preset_id") int presetId);
 
     @FormUrlEncoded
     @POST("/market")
     Call<Void> doMarketUpload();
 
-    @FormUrlEncoded
     @GET("/market")
     Call<JsonObject> getMarket();
     
@@ -92,18 +94,15 @@ public interface APIinterface {
     @DELETE("/market")
     Call<Void> deleteMarket(@Field("preset_id") int presetId);
 
-    @FormUrlEncoded
     @GET("/market/download")
-    Call<JsonObject> doMarketDownload(@Field("email") String email,
-                                @Field("preset_id") int presetId);
+    Call<JsonObject> doMarketDownload(@Query("email") String email,
+                                      @Query("preset_id") int presetId);
 
-    @FormUrlEncoded
     @GET("/market/like")
-    Call<JsonObject> getMarketLike(@Field("preset_id") int presetId);
+    Call<JsonObject> getMarketLike(@Query("preset_id") int presetId);
 
-    @FormUrlEncoded
     @GET("/preset")
-    Call<JsonObject> getOwnPreset(@Field("email") String email);
+    Call<List<JsonObject>> getOwnPreset(@Query("email") String email);
 
     @FormUrlEncoded
     @POST("/preset")
@@ -124,17 +123,14 @@ public interface APIinterface {
     @DELETE("/preset")
     Call<Void> deletePreset(@Field("preset_id") int presetId);
 
-    @FormUrlEncoded
     @GET("/preset/detail")
-    Call<Void> getPresetDetail(@Field("preset_id") int presetId);
+    Call<JsonObject> getPresetDetail(@Query("preset_id") int presetId);
 
-    @FormUrlEncoded
     @GET("/preset/uploaded")
-    Call<JsonObject> getUploadedPreset(@Field("email") String email);
+    Call<JsonObject> getUploadedPreset(@Query("email") String email);
 
-    @FormUrlEncoded
     @GET("/profile_image")
-    Call<JsonObject> getProfileImage(@Field("email") String email);
+    Call<JsonObject> getProfileImage(@Query("email") String email);
 
     @POST("/profile_image")
     Call<Void> postProfileImage(@Field("image") File image);
