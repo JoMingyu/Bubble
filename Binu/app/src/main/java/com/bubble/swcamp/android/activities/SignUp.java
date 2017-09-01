@@ -1,5 +1,6 @@
 package com.bubble.swcamp.android.activities;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
