@@ -3,6 +3,8 @@ package com.bubble.swcamp.android.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +36,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(MyPageAdapter.ViewHolder holder, int position) {
+        GridLayoutManager.LayoutParams params = (GridLayoutManager.LayoutParams)holder.bgMyPageBase.getLayoutParams();
         switch (position){
             case 0:
                 holder.itemName.setText("소유 마일리지");
@@ -41,7 +44,9 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.aboutItem.setText("현재까지 적립된 마일리지 내역입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#66BB6A"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResA));
-                holder.icon.getLayoutParams().width = 70;
+                holder.icon.getLayoutParams().width = 60;
+                holder.icon.getLayoutParams().height = 130;
+                params.setMargins(30, 15, 15, 15);
                 break;
             case 1:
                 holder.itemName.setText("누적 좋아요");
@@ -49,7 +54,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.aboutItem.setText("현재까지 누적된 좋아요 횟수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#42A5F5"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResB));
-//                holder.icon.setMaxWidth(50);
+                params.setMargins(15, 15, 30, 15);
                 break;
             case 2:
                 holder.itemName.setText("프리셋 생성");
@@ -57,6 +62,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.aboutItem.setText("현재까지 생성하신 프리셋 개수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#EF5350"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResC));
+                params.setMargins(30, 15, 15, 15);
                 break;
             case 3:
                 holder.itemName.setText("프리셋 업로드");
@@ -64,6 +70,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.aboutItem.setText("현재까지 누적된 프리셋 업로드 갯수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#AB47BC"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResD));
+                params.setMargins(15, 15, 30, 15);
                 break;
             case 4:
                 holder.itemName.setText("프리셋 다운로드");
@@ -71,6 +78,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.aboutItem.setText("현재까지 누적된 프리셋 다운로드 갯수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#FF7043"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResE));
+                params.setMargins(30, 15, 15, 15);
                 break;
             case 5:
                 holder.itemName.setText("내 프리셋 다운로드");
@@ -78,6 +86,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.aboutItem.setText("현재까지 누적된 내 프리셋 다운로드 수입니다.");
                 holder.line.setBackgroundColor(Color.parseColor("#8D6E63"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResF));
+                params.setMargins(15, 15, 30, 15);
                 break;
 
         }
@@ -96,6 +105,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
         TextView aboutItem;
         RelativeLayout bgColor;
         ImageView icon;
+        LinearLayout bgMyPageBase;
         public ViewHolder(View itemView) {
             super(itemView);
             this.value = (TextView) itemView.findViewById(R.id.value);
@@ -104,6 +114,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
             this.aboutItem = (TextView) itemView.findViewById(R.id.about_item);
             this.bgColor = (RelativeLayout) itemView.findViewById(R.id.bg_color);
             this.icon = (ImageView) itemView.findViewById(R.id.icon);
+            this.bgMyPageBase = (LinearLayout) itemView.findViewById(R.id.bg_my_page_base);
         }
     }
 

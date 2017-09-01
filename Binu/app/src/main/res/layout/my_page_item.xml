@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bg_my_page_base"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:layout_margin="10dp"
-    android:background="@drawable/bg_my_page_base">
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_my_page_base"
+    android:elevation="5dp">
 
     <LinearLayout
         android:orientation="vertical"
@@ -16,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="6"
-            android:background="@drawable/bg_my_page"
-            android:backgroundTint="@color/colorPrimary">
+            android:background="@drawable/bg_my_page">
             <TextView
                 android:id="@+id/value"
                 android:layout_width="wrap_content"
@@ -30,12 +32,20 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_my_page1"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_refresh"
+                android:scaleType="centerCrop"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"/>
         </RelativeLayout>
         <LinearLayout
             android:orientation="vertical"
@@ -52,7 +62,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="소유 마일리지"
                     android:textColor="@android:color/holo_green_dark"
                     android:textSize="14sp"/>
                 <View
@@ -61,15 +70,13 @@
                     android:layout_height="2dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_below="@+id/item_name"
-                    android:background="@android:color/holo_green_dark"/>
+                    android:layout_below="@+id/item_name" />
                 <TextView
                     android:id="@+id/about_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/line"
-                    android:text="현재까지 적립한 마일리지 내역입니다"
-                    android:textSize="8sp"
+                    android:textSize="6sp"
                     android:textColor="@android:color/black"/>
             </RelativeLayout>
         </LinearLayout>

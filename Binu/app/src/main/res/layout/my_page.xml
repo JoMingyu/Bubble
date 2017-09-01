@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/bg_circle_profile"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="헤이즈"
             android:textSize="20sp"
             android:textColor="@android:color/white"
