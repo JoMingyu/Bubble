@@ -80,6 +80,7 @@
                             android:textSize="15sp"
                             android:textStyle="bold"/>
                         <TextView
+                            android:id="@+id/whoose_preset"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="조민규님의 필터"
@@ -143,6 +144,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:src="@drawable/ic_thumb_up_line"/>
                             <TextView
+                                android:id="@+id/like_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"

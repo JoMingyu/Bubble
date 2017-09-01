@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bubble.swcamp.android.R;
 import com.bubble.swcamp.android.network.APIclient;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 public class PresetDetail extends AppCompatActivity {
     private ImageView previewImage;
     private Intent intent;
+    private TextView presetName, whoosePreset, downloadCount, uploadDate, likeCount;
     private APIinterface apiInterface;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,11 +34,20 @@ public class PresetDetail extends AppCompatActivity {
         setContentView(R.layout.preset_detail);
         intent = getIntent();
         apiInterface = APIclient.getClient().create(APIinterface.class);
+        presetName = (TextView)findViewById(R.id.preset_name);
+        whoosePreset = (TextView)findViewById(R.id.whoose_preset);
+        downloadCount = (TextView)findViewById(R.id.download_count);
+        uploadDate = (TextView)findViewById(R.id.download_count);
+        likeCount = (TextView)findViewById(R.id.like_count);
         apiInterface.getPresetDetail(intent.getIntExtra("preset_id", 0)).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if(response.code() == 200){
-                    Log.d("response", response.body()+"");
+                    presetName.setText(response.body().get("title").toString());
+                    whoosePreset.setText(response.body().get("nickname").toString());
+                    downloadCount.setText(response.body().get("download_count").toString());
+                    likeCount.setText(response.body().get("like_count").toString());
+                    uploadDate.setText(response.body().get("creation_date").toString());
                 }
             }
 
