@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#303841"
+    android:layout_height="match_parent">
+
+
+    <Spinner
+        android:id="@+id/filter_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+    </Spinner>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#70666B"
+        android:layout_height="2dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/filter_recyclerView"
+        android:layout_below="@+id/filter_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
