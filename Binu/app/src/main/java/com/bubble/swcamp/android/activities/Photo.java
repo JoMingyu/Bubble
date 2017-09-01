@@ -59,7 +59,7 @@ public class Photo extends AppCompatActivity {
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.photo_recyclerView);
 
         getData();
-        backButton();
+        setBuuton();
 
         recyclerView.setAdapter(new SamplePhotoAdapter(getApplicationContext()));
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(3,dpToPx(70),true));
@@ -121,13 +121,24 @@ public class Photo extends AppCompatActivity {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dp,r.getDisplayMetrics()));
     }
 
-    public void backButton(){
-        Button button=(Button)findViewById(R.id.back_button);
-        button.setOnClickListener(new View.OnClickListener() {
+    public void setBuuton(){
+        Button back=(Button)findViewById(R.id.back_button);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        Button next=(Button)findViewById(R.id.next_button);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplication(),PhotoFilter.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
+
 }
