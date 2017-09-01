@@ -28,7 +28,7 @@
                 android:layout_toRightOf="@+id/backBtn"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="필터링"
+                android:text="프리셋 업로드"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
@@ -38,8 +38,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/footer"
         android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/footer"
         android:weightSum="10">
         <LinearLayout
             android:orientation="vertical"
@@ -53,33 +53,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="검색"
+                android:text="제목"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="검색을 통해 필터링을 찾으실 수 있습니다."
+                android:text="필터의 제목을 지어주세요."
                 android:textColor="@android:color/black"
                 android:textSize="10sp"/>
             <EditText
-                android:id="@+id/search"
+                android:id="@+id/input_title"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:hint="검색어를 입력하세요"
+                android:hint="제목을 입력하세요"
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="13sp"
                 android:background="@drawable/bg_search_input"/>
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#E3E3E3"/>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -87,55 +80,70 @@
             android:layout_weight="3"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp">
+            android:layout_marginTop="25dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="필터링"
+                android:text="설명"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="검색을 통해 필터링을 찾으실 수 있습니다."
+                android:text="필터를 간단하게 설명해주세요."
                 android:textColor="@android:color/black"
                 android:textSize="10sp"/>
-            <LinearLayout
-                android:orientation="horizontal"
+            <EditText
+                android:id="@+id/input_summary"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="10"
-                android:gravity="center"
-                android:layout_marginTop="10dp">
-                <Button
-                    android:id="@+id/like"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:background="@drawable/bg_rounded_stroke_btn"
-                    android:layout_marginRight="8dp"
-                    android:text="좋아요 수"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:onClick="setFilter"/>
-                <Button
-                    android:id="@+id/download"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:background="@drawable/bg_rounded_stroke_btn"
-                    android:layout_marginLeft="8dp"
-                    android:text="다운로드 수"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:onClick="setFilter"/>
-            </LinearLayout>
+                android:layout_height="46dp"
+                android:hint="텍스트를 입력하세요."
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="13sp"
+                android:background="@drawable/bg_search_input"/>
         </LinearLayout>
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4"></LinearLayout>
+            android:layout_weight="4"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="해시태그"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[선택부분] 필터의 적합한 해시태그를 추가해주세요."
+                android:textColor="@android:color/black"
+                android:textSize="10sp"/>
+            <EditText
+                android:id="@+id/search"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:hint="추가할 태그를 입력하세요."
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="13sp"
+                android:background="@drawable/bg_search_input"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/hash_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/footer"
@@ -147,7 +155,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/search"
+            android:text="업로드하기"
             android:textColor="@android:color/white"
             android:background="@drawable/bg_search_btn"
             android:layout_marginLeft="10dp"

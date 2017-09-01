@@ -30,15 +30,15 @@ public class Filter extends AppCompatActivity {
     public void setFilter(View v){
         switch (v.getId()){
             case R.id.download:
-                like.setBackgroundResource(R.drawable.bg_filter_btn);
+                like.setBackgroundResource(R.drawable.bg_rounded_stroke_btn);
                 like.setTextColor(Color.parseColor("#7e57c2"));
-                download.setBackgroundResource(R.drawable.bg_filter_btn_selected);
+                download.setBackgroundResource(R.drawable.bg_rounded_primary_dark);
                 download.setTextColor(Color.parseColor("#ffffff"));
                 break;
             case R.id.like:
-                download.setBackgroundResource(R.drawable.bg_filter_btn);
+                download.setBackgroundResource(R.drawable.bg_rounded_stroke_btn);
                 download.setTextColor(Color.parseColor("#7e57c2"));
-                like.setBackgroundResource(R.drawable.bg_filter_btn_selected);
+                like.setBackgroundResource(R.drawable.bg_rounded_primary_dark);
                 like.setTextColor(Color.parseColor("#ffffff"));
                 break;
             default: break;

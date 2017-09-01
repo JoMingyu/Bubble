@@ -105,7 +105,7 @@ public class FilterSetupFragment extends Fragment {
 
         myFilter.addSubFilter(new BrightnessSubfilter(30));
         myFilter.addSubFilter(new ContrastSubfilter(1.1f));
-        
+
 
 
     }
