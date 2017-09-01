@@ -7,10 +7,10 @@ from support.mysql import query
 class Preset(Resource):
     def get(self):
         # '내 프리셋' 리스트 데이터 가져오기
-        # 필요한 데이터 : 프리셋 id, 이름, 소유여부, 업로드여부, 추가일
+        # 필요한 데이터 : 프리셋 id, 이름, 소유여부, 업로드여부, 추가일, 해시태그, 이미지
 
         email = request.args['email']
-        data = query("SELECT preset_id, title, poss, uploaded, added_date FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
+        data = query("SELECT preset_id, title, poss, uploaded, added_date, hash_tags, image_name FROM own_preset JOIN preset USING(preset_id) WHERE own_preset.owner='{0}'".format(email))
         # 충분한 데이터 조회를 위해 내 프리셋과 프리셋 테이블 join
 
         for index in range(len(data)):
@@ -53,7 +53,7 @@ class Preset(Resource):
         query("INSERT INTO preset_options VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})"
               .format(new_preset_id, exposure, contrast, highlight, blackpoint, white, black, temperature, tone, chroma))
 
-        return '', 201
+        return {'preset_id': new_preset_id}, 201
 
     def delete(self):
         # 프리셋 제거
