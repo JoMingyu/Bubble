@@ -1,5 +1,6 @@
 package com.bubble.swcamp.android.activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -70,7 +71,7 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.code() == 201){
-                            Log.d("signUp", "Success");
+                            startActivity(new Intent(getApplicationContext(), SignIn.class));
                         }
                     }
 

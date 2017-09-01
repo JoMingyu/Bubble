@@ -128,4 +128,11 @@ public interface APIinterface {
     @FormUrlEncoded
     @GET("/preset/uploaded")
     Call<JsonObject> getUploadedPreset(@Field("email") String email);
+
+    @FormUrlEncoded
+    @GET("/profile_image")
+    Call<JsonObject> getProfileImage(@Field("email") String email);
+
+    @POST("/profile_image")
+    Call<Void> postProfileImage(@Field("image") File image);
 }
