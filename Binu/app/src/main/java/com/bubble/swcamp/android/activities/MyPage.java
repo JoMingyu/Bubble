@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bubble.swcamp.android.adapter.MyPageAdapter;
@@ -41,4 +42,5 @@ public class MyPage extends AppCompatActivity {
     public void onBackBtnClicked(View v){
         finish();
     }
+
 }

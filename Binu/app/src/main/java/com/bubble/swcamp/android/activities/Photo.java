@@ -13,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bubble.swcamp.android.R;
@@ -48,6 +49,8 @@ public class Photo extends AppCompatActivity {
         }
     }
 
+   
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,15 +70,15 @@ public class Photo extends AppCompatActivity {
 
     public void getData(){
         arrayList=new ArrayList<>();
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
-        arrayList.add(new SampleImage(22));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
+        arrayList.add(new SampleImage(1));
 
 
     }
