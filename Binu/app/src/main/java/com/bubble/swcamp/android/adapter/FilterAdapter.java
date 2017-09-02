@@ -68,7 +68,7 @@ public class FilterAdapter extends RecyclerView.Adapter<FilterAdapter.ViewHolder
             public void onClick(View v) {
 
 
-                main_imageView.setImageBitmap(filterItem.filter.processFilter(mBitmap));
+                main_imageView.setImageBitmap(filterItem.filter.processFilter(Bitmap.createScaledBitmap(mBitmap,640,640,false)));
                 Log.d("--------","click");
 /*
                 mainImage.setImageBitmap(filter.processFilter(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.test_image), 640, 640, false)));
