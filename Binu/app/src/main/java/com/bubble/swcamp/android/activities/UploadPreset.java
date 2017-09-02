@@ -61,26 +61,32 @@ public class UploadPreset extends AppCompatActivity {
         mRealm = Realm.getDefaultInstance();
         realmResults = mRealm.where(Manager.class).findAll();
         apiInterface = APIclient.getClient().create(APIinterface.class);
+//        submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                apiInterface.doUploadPreset(realmResults.get(0).getEmail(),
+//                        inputTitle.getText().toString(),
+//                        jsonArray,
+//                        0, 0, 0, 0, 0, 0, 0, 0, 0).enqueue(new Callback<JsonObject>() {
+//                    @Override
+//                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//                        if(response.code() == 201){
+//                            Intent intent = new Intent(getApplicationContext(), BubbleMarket.class);
+//                            startActivity(intent);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<JsonObject> call, Throwable t) {
+//
+//                    }
+//                });
+//            }
+//        });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apiInterface.doUploadPreset(realmResults.get(0).getEmail(),
-                        inputTitle.getText().toString(),
-                        jsonArray,
-                        0, 0, 0, 0, 0, 0, 0, 0, 0).enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        if(response.code() == 201){
-                            Intent intent = new Intent(getApplicationContext(), BubbleMarket.class);
-                            startActivity(intent);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                    }
-                });
+                startActivity(new Intent(getApplicationContext(), BubbleMarket.class));
             }
         });
     }

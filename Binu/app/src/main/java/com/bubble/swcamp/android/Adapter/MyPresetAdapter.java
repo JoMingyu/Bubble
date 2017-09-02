@@ -48,6 +48,7 @@ public class MyPresetAdapter extends RecyclerView.Adapter<MyPresetAdapter.ViewHo
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, PresetDetail.class);
                 intent.putExtra("preset_id", list.get(position).get("preset_id").getAsInt());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });
