@@ -4,7 +4,6 @@ from flask_restful import Resource
 from support.mysql import query
 
 import uuid
-import json
 import smtplib
 from email.mime.text import MIMEText
 
@@ -49,7 +48,7 @@ class FindIdVerify(Resource):
         if query("SELECT * FROM email_codes WHERE email='{0}' AND code='{1}'".format(email, code)):
             query("DELETE FROM email_codes WHERE email='{0}'".format(email))
             res = query("SELECT * FROM account WHERE email='{0}'".format(email))
-            return json.dumps({'id': res[0]['id']})
+            return {'id': res[0]['id']}
         else:
             return '', 204
 
