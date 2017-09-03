@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/bg_my_preset_base"
+    android:elevation="10dp"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/preset_preview"
+            android:src="@drawable/kyungsook"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius_top_left="10dp"
+            app:riv_corner_radius_top_right="10dp"
+            app:riv_border_width="2dip"
+            app:riv_border_color="#333333" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/preset_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="봄사랑 벚꽃말고"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/whoose_preset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/preset_name"
+            android:text="내가 만든 프리셋"
+            android:textSize="8sp"
+            android:textColor="@android:color/black"/>
+
+        <RelativeLayout
+            android:id="@+id/downloadGroup"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/whoose_preset">
+
+            <TextView
+                android:id="@+id/download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="다운로드 수"
+                android:textSize="11sp"
+                android:textColor="#16BFCB"
+                android:layout_alignParentLeft="true" />
+            <TextView
+                android:id="@+id/download_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/download"
+                android:layout_marginLeft="5dp"
+                android:text="305,121"
+                android:textColor="#16BFCB"
+                android:textSize="11sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/download_count"
+                android:text="회"
+                android:textColor="#16BFCB"
+                android:textSize="11sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017. 09. 02"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/downloadGroup"
+            android:layout_alignParentRight="true"
+            android:text="#뉴욕"
+            android:textSize="11sp"
+            android:textColor="@android:color/black"/>
+    </RelativeLayout>
+
+</LinearLayout>

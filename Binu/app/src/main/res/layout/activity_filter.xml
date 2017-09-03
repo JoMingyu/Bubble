@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bubble.swcamp.android.activities.Filter">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/layout_filter_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar_filter" />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_filter_main"
+        android:layout_below="@+id/layout_filter_appbar"
+        android:layout_above="@+id/layout_filter_down_appbar"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/main_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:layout_above="@+id/viewPager" />
+
+
+        <com.bubble.swcamp.android.custom.UnScrollViewPager
+            android:id="@+id/viewPager"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        </com.bubble.swcamp.android.custom.UnScrollViewPager>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/layout_filter_down_appbar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar_down_filter" />
+    </android.support.design.widget.AppBarLayout>
+
+</RelativeLayout>

@@ -1,10 +1,10 @@
-package com.bubble.swcamp.android.Adapter;
+package com.bubble.swcamp.android.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bubble.swcamp.android.R;
+import com.bubble.swcamp.android.activities.Photo;
 import com.bumptech.glide.Glide;
 
 /**
@@ -63,6 +64,13 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.line.setBackgroundColor(Color.parseColor("#EF5350"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResC));
                 params.setMargins(30, 15, 15, 15);
+                holder.bgMyPageBase.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(mContext, Photo.class);
+                        mContext.startActivity(intent);
+                    }
+                });
                 break;
             case 3:
                 holder.itemName.setText("프리셋 업로드");
@@ -79,6 +87,7 @@ public class MyPageAdapter extends RecyclerView.Adapter<MyPageAdapter.ViewHolder
                 holder.line.setBackgroundColor(Color.parseColor("#FF7043"));
                 holder.bgColor.setBackgroundTintList(ContextCompat.getColorStateList(mContext, R.color.colorMyPageResE));
                 params.setMargins(30, 15, 15, 15);
+
                 break;
             case 5:
                 holder.itemName.setText("내 프리셋 다운로드");

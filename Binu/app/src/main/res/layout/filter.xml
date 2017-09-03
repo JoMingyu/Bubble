@@ -20,7 +20,8 @@
                 android:layout_height="20dp"
                 android:src="@drawable/ic_back_arrow"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="18dp"/>
+                android:layout_marginLeft="18dp"
+                android:onClick="onBackBtnClicked"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -115,7 +116,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:background="@drawable/bg_filter_btn"
+                    android:background="@drawable/bg_rounded_stroke_btn"
                     android:layout_marginRight="8dp"
                     android:text="좋아요 수"
                     android:textColor="@color/colorPrimaryDark"
@@ -125,7 +126,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:background="@drawable/bg_filter_btn"
+                    android:background="@drawable/bg_rounded_stroke_btn"
                     android:layout_marginLeft="8dp"
                     android:text="다운로드 수"
                     android:textColor="@color/colorPrimaryDark"

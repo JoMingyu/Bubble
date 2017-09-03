@@ -30,6 +30,7 @@ api.add_resource(Market, '/market')
 api.add_resource(Download, '/market/download')
 api.add_resource(Like, '/market/like')
 
+
 api.add_resource(Preset, '/preset')
 api.add_resource(UploadedPreset, '/preset/uploaded')
 api.add_resource(PresetDetail, '/preset/detail')

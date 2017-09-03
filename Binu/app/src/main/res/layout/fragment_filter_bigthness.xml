@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bubble.swcamp.android.fragments.FilterBrightnessFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/exposure"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:text="노출"
+            android:textSize="12sp"
+            android:textColor="#000"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/exposure_size"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/exposure_seekBar"
+            android:layout_below="@+id/exposure"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000"
+            android:layout_width="match_parent"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/black_seekbar"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/prepare"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:textColor="#000"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:text="대비"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/prepare_size"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/prepare_seekBar"
+            android:layout_below="@+id/prepare"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/black_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/bright_area"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="8dp"
+            android:text="밝은 영역"
+            android:textColor="#000"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/bright_area_size"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/bright_area_seekBar"
+            android:layout_below="@+id/bright_area"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000"
+            android:layout_width="match_parent"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/black_seekbar"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>
